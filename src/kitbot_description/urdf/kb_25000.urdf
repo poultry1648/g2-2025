@@ -13782,13 +13782,13 @@
         <parent link="_500in_external_snap_ring__97431a340_" />
         <child link="fr8zz_bearing__am_0030_" />
     </joint>
-    <joint name="output_shaft_revolute" type="continuous">
+    <joint name="output_shaft_revolute" type="fixed">
         <origin xyz="-0.204343 -0.0125 0.0761937" rpy="1.96259 -4.69118e-15 4.64278e-16" />
         <axis xyz="1 -1.00632e-15 2.00158e-15" />
         <parent link="r6zz_bearing__am_0516__3" />
         <child link="toughbox_hex_output_shaft_for_am14u5__am_4722_pin__1" />
     </joint>
-    <joint name="output_shaft_revolute_1" type="continuous">
+    <joint name="output_shaft_revolute_1" type="fixed">
         <origin xyz="-0.204343 -0.0125 0.0761937" rpy="-1.11022e-16 -9.95237e-16 4.95128e-18" />
         <axis xyz="1 -1.00632e-15 2.00158e-15" />
         <parent link="r6zz_bearing__am_0516__1" />
@@ -14610,28 +14610,63 @@
         <parent link="hex_bolt_3_8_16_x_4_25_3" />
         <child link="_850in_l_x__380in_id_spacer__am_1307__3" />
     </joint>
-    <joint name="wheel_revolute_loop_closure" type="continuous">
+    <joint name="wheel_revolute_loop_closure" type="fixed">
         <origin xyz="-0.003175 1.11022e-16 1.38778e-17" rpy="-0.977939 1.16166e-14 -3.14159" />
         <axis xyz="-1 1.52717e-14 6.35175e-15" />
         <parent link="375_16_lock_nut_91831a127_step" />
         <child link="_850in_l_x__380in_id_spacer__am_1307___1__loop_closure_2" />
     </joint>
-    <joint name="wheel_revolute_loop_closure_1" type="continuous">
+    <joint name="wheel_revolute_loop_closure_1" type="fixed">
         <origin xyz="-0.003175 0 -4.16334e-17" rpy="6.10623e-16 -3.85175e-15 -3.14159" />
         <axis xyz="-1 1.52717e-14 6.35175e-15" />
         <parent link="375_16_lock_nut_91831a127_step_2" />
         <child link="_850in_l_x__380in_id_spacer__am_1307___1__loop_closure_1" />
     </joint>
-    <joint name="wheel_revolute_loop_closure_2" type="continuous">
+    <joint name="wheel_revolute_loop_closure_2" type="fixed">
         <origin xyz="0.085725 -1.33227e-15 -5.86337e-16" rpy="2.97912 4.02476e-15 -1.40127e-14" />
         <axis xyz="-1 -8.66025e-16 -2.5e-15" />
         <parent link="_850in_l_x__380in_id_spacer__am_1307__1" />
         <child link="375_16_lock_nut_91831a127_step__1__loop_closure" />
     </joint>
-    <joint name="wheel_revolute_loop_closure_3" type="continuous">
+    <joint name="wheel_revolute_loop_closure_3" type="fixed">
         <origin xyz="-0.0889 5.55112e-17 -2.08167e-16" rpy="-2.71121 9.6985e-15 -1.03748e-14" />
         <axis xyz="-1 1.52717e-14 6.35175e-15" />
         <parent link="375_16_lock_nut_91831a127_step_3" />
         <child link="_850in_l_x__380in_id_spacer__am_1307___1__loop_closure" />
     </joint>
+
+    <gazebo>
+        <plugin filename="gz-sim-joint-controller-system" name="gz::sim::systems::JointController">
+            <joint_name>cl_wheel</joint_name>
+            <topic>left_wheel_cmd</topic>
+        </plugin>
+        <plugin filename="gz-sim-joint-controller-system" name="gz::sim::systems::JointController">
+            <joint_name>wheel_revolute_1</joint_name>
+            <topic>left_wheel_cmd</topic>
+        </plugin>
+        <plugin filename="gz-sim-joint-controller-system" name="gz::sim::systems::JointController">
+            <joint_name>wheel_revolute_3</joint_name>
+            <topic>left_wheel_cmd</topic>
+        </plugin>
+        <plugin filename="gz-sim-joint-controller-system" name="gz::sim::systems::JointController">
+            <joint_name>cr_wheel</joint_name>
+            <topic>right_wheel_cmd</topic>
+        </plugin>
+        <plugin filename="gz-sim-joint-controller-system" name="gz::sim::systems::JointController">
+            <joint_name>wheel_revolute</joint_name>
+            <topic>right_wheel_cmd</topic>
+        </plugin>
+        <plugin filename="gz-sim-joint-controller-system" name="gz::sim::systems::JointController">
+            <joint_name>wheel_revolute_2</joint_name>
+            <topic>right_wheel_cmd</topic>
+        </plugin>
+        <plugin filename="gz-sim-joint-controller-system" name="gz::sim::systems::JointController">
+            <joint_name>revolute_1_2</joint_name>
+            <topic>roller_cmd</topic>
+        </plugin>
+        <plugin filename="gz-sim-joint-controller-system" name="gz::sim::systems::JointController">
+            <joint_name>revolute_2</joint_name>
+            <topic>roller_cmd</topic>
+        </plugin>
+    </gazebo>
 </robot>
