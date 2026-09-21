@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<sdf version="1.8">
+    <world name="reefscape">
+        <include>
+            <uri>model://reef</uri>
+            <name>reef</name>
+            <pose>0.0 0.5 0 0 0</pose>
+        </include>
+    </world>
+</sdf>
