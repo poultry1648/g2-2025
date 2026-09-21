@@ -3,7 +3,7 @@ import os
 
 from setuptools import find_packages, setup
 
-package_name = 'kitbot_application'
+package_name = 'kitbot_bringup'
 
 setup(
     name=package_name,
@@ -20,8 +20,8 @@ setup(
     zip_safe=True,
     maintainer='poultry',
     maintainer_email='woodyspivey@gmail.com',
-    description='TODO: Package description',
-    license='TODO: License declaration',
+    description='Brings up the kitbot simulation, bridge, and application.',
+    license='Apache-2.0',
     extras_require={
         'test': [
             'pytest',
