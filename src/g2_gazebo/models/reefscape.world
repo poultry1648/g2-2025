@@ -1,10 +1,112 @@
 <?xml version="1.0"?>
 <sdf version="1.8">
-    <world name="reefscape">
-        <include>
-            <uri>model://reef</uri>
-            <name>reef</name>
-            <pose>0.0 0.5 0 0 0</pose>
-        </include>
-    </world>
+  <world name="reefscape">
+    <!--
+      Reefscape field layout (2025 FRC REEFSCAPE).
+
+      Poses are in Gazebo/ROS convention: x y z roll pitch yaw, metres / radians.
+
+      They come from the official FIRST FE-2025 STEP assembly. The CAD frame is
+      Y-up, origin at field centre, X = length toward red, Z = width (scoring
+      table side at +Z). It is remapped to z-up here as:
+          x = X_cad,  y = -Z_cad,  z = Y_cad,  yaw = -(yaw about Y_cad)
+      So: origin = field centre, +x toward red, +y toward the non-scoring-table
+      side, +z up. Blue end is at x = -8.774, red end at x = +8.774.
+
+      Fields are 690.876 in x 317.5 in (17.548 x 8.064 m).
+
+      Poses are placed so each mesh's own bounding-box centre lands on the
+      element's CAD geometry centre, so they are insensitive to the meshes'
+      arbitrary local origins.
+    -->
+
+    <!-- Barge (one only) -->
+    <include>
+      <uri>model://barge</uri>
+      <name>barge</name>
+      <pose>0 0 0 0 0 -1.57080</pose>
+    </include>
+
+    <!-- Reefs -->
+    <include>
+      <uri>model://reef</uri>
+      <name>blue_reef</name>
+      <pose>-4.2847 0 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://reef</uri>
+      <name>red_reef</name>
+      <pose>4.2847 0 0 0 0 0</pose>
+    </include>
+
+    <!-- Coral stations (two corners per alliance) -->
+    <include>
+      <uri>model://coral_station</uri>
+      <name>blue_coral_station_1</name>
+      <pose>-7.9550 3.3592 0 0 0 -2.51345</pose>
+    </include>
+    <include>
+      <uri>model://coral_station</uri>
+      <name>blue_coral_station_3</name>
+      <pose>-7.9146 -3.4489 0 0 0 -0.62814</pose>
+    </include>
+    <include>
+      <uri>model://coral_station</uri>
+      <name>red_coral_station_1</name>
+      <pose>7.9487 -3.3473 0 0 0 0.62814</pose>
+    </include>
+    <include>
+      <uri>model://coral_station</uri>
+      <name>red_coral_station_3</name>
+      <pose>7.9146 3.4489 0 0 0 2.51345</pose>
+    </include>
+
+    <!-- Processors (one per alliance, on the scoring-table side) -->
+    <include>
+      <uri>model://processor</uri>
+      <name>blue_processor</name>
+      <pose>-3.6094 -3.8785 0 0 0 -3.14159</pose>
+    </include>
+    <include>
+      <uri>model://processor</uri>
+      <name>red_processor</name>
+      <pose>3.6094 3.8785 0 0 0 0</pose>
+    </include>
+
+    <!-- Field walls (side borders) -->
+    <include>
+      <uri>model://field_wall</uri>
+      <name>blue_field_wall</name>
+      <pose>0 -4.2371 0 0 0 -3.14159</pose>
+    </include>
+    <include>
+      <uri>model://field_wall</uri>
+      <name>red_field_wall</name>
+      <pose>0 4.2371 0 0 0 0</pose>
+    </include>
+
+    <!-- Driver stations -->
+    <include>
+      <uri>model://driver_stations</uri>
+      <name>blue_driver_stations</name>
+      <pose>-8.4842 0 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://driver_stations</uri>
+      <name>red_driver_stations</name>
+      <pose>8.4842 0 0 0 0 -3.14159</pose>
+    </include>
+
+    <!-- Carpet (two halves, split across the field width) -->
+    <include>
+      <uri>model://carpet</uri>
+      <name>blue_carpet</name>
+      <pose>0 -0.0040 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://carpet</uri>
+      <name>red_carpet</name>
+      <pose>0 -4.5760 0 0 0 0</pose>
+    </include>
+  </world>
 </sdf>
