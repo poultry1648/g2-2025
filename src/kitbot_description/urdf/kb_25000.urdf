@@ -14635,6 +14635,35 @@
         <child link="_850in_l_x__380in_id_spacer__am_1307___1__loop_closure" />
     </joint>
 
+    <link name="ballast">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <mass value="4.0" />
+            <inertia ixx="0.011633" ixy="0" ixz="0" iyy="0.011633" iyz="0" izz="0.0216" />
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <box size="0.18 0.18 0.05" />
+            </geometry>
+            <material name="ballast">
+                <color rgba="0.15 0.15 0.15 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <box size="0.18 0.18 0.05" />
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="ballast_joint" type="fixed">
+        <origin xyz="0 0 0.05" rpy="0 0 0" />
+        <parent link="root" />
+        <child link="ballast" />
+    </joint>
+
     <gazebo>
         <plugin filename="gz-sim-joint-controller-system" name="gz::sim::systems::JointController">
             <joint_name>cl_wheel</joint_name>
