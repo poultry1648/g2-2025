@@ -1,3 +1,4 @@
+from glob import glob
 import os
 
 from setuptools import find_packages, setup
@@ -24,6 +25,8 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        (os.path.join('share', package_name, 'launch'),
+            glob('launch/*.launch.py')),
     ] + data_files_from('urdf') + data_files_from('meshes'),
     install_requires=['setuptools'],
     zip_safe=True,

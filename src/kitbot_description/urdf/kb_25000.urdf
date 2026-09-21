@@ -1760,28 +1760,6 @@
             </geometry>
         </collision>
     </link>
-    <link name="130t_5mm_x_15mm_htd_belt__wcp_0652_">
-        <inertial>
-            <mass value="0.0428117" />
-            <origin xyz="0.246951 -0.304162 0.620593" rpy="0 -0 0" />
-            <inertia ixx="0.00039083" ixy="0" ixz="0" iyy="0.000338316" iyz="7.92336e-05" izz="5.41193e-05" />
-        </inertial>
-        <visual>
-            <origin xyz="0 0 0" rpy="0 -0 0" />
-            <geometry>
-                <mesh filename="package://kitbot_description/meshes/_130T_5mm_x_15mm_HTD_Belt__WCP_0652_.stl" scale="1 1 1" />
-            </geometry>
-            <material name="0.647059_0.647059_0.647059_0.000000_0.000000">
-                <color rgba="0.647059 0.647059 0.647059 1" />
-            </material>
-        </visual>
-        <collision>
-            <origin xyz="0 0 0" rpy="0 -0 0" />
-            <geometry>
-                <mesh filename="package://kitbot_description/meshes/_130T_5mm_x_15mm_HTD_Belt__WCP_0652_.stl" scale="1 1 1" />
-            </geometry>
-        </collision>
-    </link>
     <link name="14_tooth_20_dp_8mm_bore_steel_pinion_gear__am_0034_">
         <inertial>
             <mass value="0.0242254" />
@@ -1867,94 +1845,6 @@
             <origin xyz="0 0 0" rpy="0 -0 0" />
             <geometry>
                 <mesh filename="package://kitbot_description/meshes/_14_Tooth_20_DP_8mm_Bore_Steel_Pinion_Gear__am_0034_.stl" scale="1 1 1" />
-            </geometry>
-        </collision>
-    </link>
-    <link name="160t_belt___800_5m_15">
-        <inertial>
-            <mass value="0.025783" />
-            <origin xyz="9.99201e-16 0.147525 0.00177822" rpy="0 -0 0" />
-            <inertia ixx="0.000371083" ixy="0" ixz="0" iyy="2.89835e-05" iyz="-3.78639e-06" izz="0.000343066" />
-        </inertial>
-        <visual>
-            <origin xyz="0.252978 0.012573 -0.0761996" rpy="0 -0 0" />
-            <geometry>
-                <mesh filename="package://kitbot_description/meshes/_160T_Belt___800_5M_15.stl" scale="1 1 1" />
-            </geometry>
-            <material name="0.000000_0.000000_0.000000_0.000000_0.000000">
-                <color rgba="0 0 0 1" />
-            </material>
-        </visual>
-        <collision>
-            <origin xyz="0.252978 0.012573 -0.0761996" rpy="0 -0 0" />
-            <geometry>
-                <mesh filename="package://kitbot_description/meshes/_160T_Belt___800_5M_15.stl" scale="1 1 1" />
-            </geometry>
-        </collision>
-    </link>
-    <link name="160t_belt___800_5m_15_1">
-        <inertial>
-            <mass value="0.025783" />
-            <origin xyz="9.99201e-16 0.147525 0.00177822" rpy="0 -0 0" />
-            <inertia ixx="0.000371083" ixy="0" ixz="0" iyy="2.89835e-05" iyz="-3.78639e-06" izz="0.000343066" />
-        </inertial>
-        <visual>
-            <origin xyz="0.252978 0.012573 -0.0761996" rpy="0 -0 0" />
-            <geometry>
-                <mesh filename="package://kitbot_description/meshes/_160T_Belt___800_5M_15.stl" scale="1 1 1" />
-            </geometry>
-            <material name="0.000000_0.000000_0.000000_0.000000_0.000000">
-                <color rgba="0 0 0 1" />
-            </material>
-        </visual>
-        <collision>
-            <origin xyz="0.252978 0.012573 -0.0761996" rpy="0 -0 0" />
-            <geometry>
-                <mesh filename="package://kitbot_description/meshes/_160T_Belt___800_5M_15.stl" scale="1 1 1" />
-            </geometry>
-        </collision>
-    </link>
-    <link name="160t_belt___800_5m_15_2">
-        <inertial>
-            <mass value="0.025783" />
-            <origin xyz="4.996e-16 -0.147525 -0.00177822" rpy="0 -0 0" />
-            <inertia ixx="0.000371083" ixy="0" ixz="0" iyy="2.89835e-05" iyz="-3.78639e-06" izz="0.000343066" />
-        </inertial>
-        <visual>
-            <origin xyz="0.252978 -0.282477 -0.079756" rpy="0 -0 0" />
-            <geometry>
-                <mesh filename="package://kitbot_description/meshes/_160T_Belt___800_5M_15.stl" scale="1 1 1" />
-            </geometry>
-            <material name="0.000000_0.000000_0.000000_0.000000_0.000000">
-                <color rgba="0 0 0 1" />
-            </material>
-        </visual>
-        <collision>
-            <origin xyz="0.252978 -0.282477 -0.079756" rpy="0 -0 0" />
-            <geometry>
-                <mesh filename="package://kitbot_description/meshes/_160T_Belt___800_5M_15.stl" scale="1 1 1" />
-            </geometry>
-        </collision>
-    </link>
-    <link name="160t_belt___800_5m_15_3">
-        <inertial>
-            <mass value="0.025783" />
-            <origin xyz="4.996e-16 -0.147525 -0.00177822" rpy="0 -0 0" />
-            <inertia ixx="0.000371083" ixy="0" ixz="0" iyy="2.89835e-05" iyz="-3.78639e-06" izz="0.000343066" />
-        </inertial>
-        <visual>
-            <origin xyz="0.252978 -0.282477 -0.079756" rpy="0 -0 0" />
-            <geometry>
-                <mesh filename="package://kitbot_description/meshes/_160T_Belt___800_5M_15.stl" scale="1 1 1" />
-            </geometry>
-            <material name="0.000000_0.000000_0.000000_0.000000_0.000000">
-                <color rgba="0 0 0 1" />
-            </material>
-        </visual>
-        <collision>
-            <origin xyz="0.252978 -0.282477 -0.079756" rpy="0 -0 0" />
-            <geometry>
-                <mesh filename="package://kitbot_description/meshes/_160T_Belt___800_5M_15.stl" scale="1 1 1" />
             </geometry>
         </collision>
     </link>
@@ -11654,30 +11544,6 @@
         <parent link="3_375in_churro_2" />
         <child link="anderson_sb50" />
     </joint>
-    <joint name="belt____pulley" type="fixed">
-        <origin xyz="-0.252952 -0.012573 0.0762" rpy="-1.5708 -1.93988e-15 -3.97553e-15" />
-        <axis xyz="-1 2.06012e-15 -4.97553e-15" />
-        <parent link="42t_5mm_htd_pulley_half__am_2234a__5" />
-        <child link="160t_belt___800_5m_15_2" />
-    </joint>
-    <joint name="belt____pulley_1" type="fixed">
-        <origin xyz="-0.252952 -0.012573 0.0762" rpy="1.5708 1.93988e-15 -3.14159" />
-        <axis xyz="-1 2.06012e-15 -4.97553e-15" />
-        <parent link="42t_5mm_htd_pulley_half__am_2234a__12" />
-        <child link="160t_belt___800_5m_15_3" />
-    </joint>
-    <joint name="belt____pulley_2" type="fixed">
-        <origin xyz="-0.252952 -0.012573 0.0762" rpy="1.5708 1.93988e-15 -3.14159" />
-        <axis xyz="-1 2.06012e-15 -4.97553e-15" />
-        <parent link="42t_5mm_htd_pulley_half__am_2234a__4" />
-        <child link="160t_belt___800_5m_15" />
-    </joint>
-    <joint name="belt____pulley_3" type="fixed">
-        <origin xyz="-0.252952 -0.012573 0.0762" rpy="1.5708 1.93988e-15 -3.14159" />
-        <axis xyz="-1 2.06012e-15 -4.97553e-15" />
-        <parent link="42t_5mm_htd_pulley_half__am_2234a__15" />
-        <child link="160t_belt___800_5m_15_1" />
-    </joint>
     <joint name="bl_wheel" type="fixed">
         <origin xyz="-0.320675 0.29505 0.079756" rpy="0 1.5708 -3.14159" />
         <axis xyz="0 0 -1" />
@@ -13272,7 +13138,7 @@
         <origin xyz="0 0 0" rpy="0 -0 5.75688e-57" />
         <axis xyz="-0 -0 -1" />
         <parent link="kb_25004__1_" />
-        <child link="130t_5mm_x_15mm_htd_belt__wcp_0652_" />
+        <child link="kb_25009" />
     </joint>
     <joint name="fixed_components_fastened_joint_34" type="fixed">
         <origin xyz="0 0 0" rpy="0 -0 5.75688e-57" />
@@ -13429,12 +13295,6 @@
         <axis xyz="-0 -0 -1" />
         <parent link="kb_25008" />
         <child link="kb_25003__1_" />
-    </joint>
-    <joint name="fixed_components_fastened_joint_58" type="fixed">
-        <origin xyz="0 0 0" rpy="0 -0 5.75688e-57" />
-        <axis xyz="-0 -0 -1" />
-        <parent link="130t_5mm_x_15mm_htd_belt__wcp_0652_" />
-        <child link="kb_25009" />
     </joint>
     <joint name="fixed_components_fastened_joint_6" type="fixed">
         <origin xyz="0.460375 -3.21618e-15 -2.40346e-15" rpy="1.78426e-56 -2.14965e-29 3.43811e-33" />
