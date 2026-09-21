@@ -29,6 +29,8 @@ setup(
     },
     entry_points={
         'console_scripts': [
+            'diff_drive = kitbot_application.diff_drive:main',
+            'teleop = kitbot_application.teleop:main',
         ],
     },
 )

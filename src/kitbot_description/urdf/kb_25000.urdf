@@ -14600,13 +14600,13 @@
     </joint>
     <joint name="wheel_revolute_2" type="continuous">
         <origin xyz="-1.38778e-17 0 -0.003175" rpy="0 1.5708 2.97912" />
-        <axis xyz="-1 1.52717e-14 6.35175e-15" />
+        <axis xyz="1 1.52717e-14 6.35175e-15" />
         <parent link="hex_bolt_3_8_16_x_4_25_1" />
         <child link="_850in_l_x__380in_id_spacer__am_1307__1" />
     </joint>
     <joint name="wheel_revolute_3" type="continuous">
         <origin xyz="1.38778e-17 1.11022e-16 -0.003175" rpy="0 1.5708 3.14159" />
-        <axis xyz="-1 1.52717e-14 6.35175e-15" />
+        <axis xyz="1 1.52717e-14 6.35175e-15" />
         <parent link="hex_bolt_3_8_16_x_4_25_3" />
         <child link="_850in_l_x__380in_id_spacer__am_1307__3" />
     </joint>
