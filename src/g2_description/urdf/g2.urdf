@@ -1,5 +1,12 @@
 <robot name="g2_2025">
-    <link name="chassis" /> 
+    <link name="chassis">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://g2_description/meshes/Chassis.dae" scale="1 1 1" />
+            </geometry>
+        </visual>
+    </link>
 
     <link name="intake" />
     <link name="intake_end_effector" />
