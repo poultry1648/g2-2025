@@ -1,0 +1,52 @@
+<robot>
+    <link name="chassis" /> 
+
+    <link name="intake" />
+    <link name="intake_end_effector" />
+    <link name="intake_compliant_wheels_left" />
+    <link name="intake_compliant_wheels_right" />
+
+    <link name="shooter_dif_ring" />
+    <link name="shooter_body" />
+
+    <link name="shooter_compliant_wheel_1" />
+    <link name="shooter_compliant_wheel_2" />
+    <link name="shooter_compliant_wheel_3" />
+    <link name="shooter_compliant_wheel_feeder" />
+
+    <link name="swerve_axel_front_left" />
+    <link name="swerve_wheel_front_left" />
+
+    <link name="swerve_axel_front_right" />
+    <link name="swerve_wheel_front_right" />
+
+    <link name="swerve_axel_back_left" />
+    <link name="swerve_wheel_back_left" />
+
+    <link name="swerve_axel_back_right" />
+    <link name="swerve_wheel_back_right" />
+
+    <joint name="linear_actuators" type="prismatic">
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <parent link="chassis"/>
+        <child link="intake"/>
+        <axis xyz="0.0 0.0 0.0"/>
+        <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
+    </joint>
+
+    <joint name="intake_pivot" type="revolute">
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <parent link="intake"/>
+        <child link="intake_end_effector"/>
+        <axis xyz="0.0 0.0 0.0"/>
+        <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
+    </joint>
+
+    <joint name="intake_left" type="continuous">
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <parent link="intake_end_effector"/>
+        <child link="intake_compliant_wheels_left"/>
+        <axis xyz="0.0 0.0 0.0"/>
+        <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
+    </joint>
+</robot>
