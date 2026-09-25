@@ -176,6 +176,7 @@ class UrdfModel:
         self.joints = []
         self.joint_by_name = {}
         self.child_joint = {}
+        self.visual_dirty = set()
         self._load()
 
     def _load(self):
@@ -252,6 +253,8 @@ class UrdfModel:
                                   [0.0, 0.0, 0.0]),
                 'filename': mesh.get('filename'),
                 'scale': _parse_vec(mesh.get('scale'), [1.0, 1.0, 1.0]),
+                'element': visual,
+                'origin_element': origin,
             })
         return visuals
 
@@ -292,6 +295,27 @@ class UrdfModel:
         element.set('xyz', format_vec(joint['axis']))
         joint['dirty_axis'] = True
 
+    def set_visual_origin(self, link_name, index, xyz=None, rpy=None):
+        """Set a link visual's mesh ``<origin>`` and mark it for saving."""
+        visual = self.link_visuals[link_name][index]
+        element = visual['origin_element']
+        if element is None:
+            element = ET.Element('origin')
+            visual['element'].insert(0, element)
+            visual['origin_element'] = element
+        if xyz is not None:
+            visual['xyz'] = [float(v) for v in xyz]
+            element.set('xyz', format_vec(visual['xyz']))
+        if rpy is not None:
+            visual['rpy'] = [float(v) for v in rpy]
+            element.set('rpy', format_vec(visual['rpy']))
+        self.visual_dirty.add((link_name, index))
+
+    def visual_origin(self, link_name, index=0):
+        """Return ``(xyz, rpy)`` of a link visual's mesh origin."""
+        visual = self.link_visuals[link_name][index]
+        return list(visual['xyz']), list(visual['rpy'])
+
     def link_world_transforms(self):
         """World transform of every link, keyed by link name."""
         children = {}
@@ -314,8 +338,9 @@ class UrdfModel:
         return transforms[joint['parent']] @ origin_matrix(joint)
 
     def is_dirty(self):
-        """Whether any joint has unsaved origin/axis edits."""
-        return any(jd['dirty_origin'] or jd['dirty_axis'] for jd in self.joints)
+        """Whether any joint or visual has unsaved edits."""
+        return bool(self.visual_dirty) or any(
+            jd['dirty_origin'] or jd['dirty_axis'] for jd in self.joints)
 
     def save(self, path=None):
         """Write edits back to disk, touching only changed origin/axis lines."""
@@ -349,11 +374,66 @@ class UrdfModel:
             if joint['dirty_axis'] and axis_index is not None:
                 lines[axis_index] = '{}<axis xyz="{}"/>'.format(
                     indent, format_vec(joint['axis']))
+        self._save_visual_origins(lines)
         path.write_text('\n'.join(lines))
         for joint in self.joints:
             joint['dirty_origin'] = False
             joint['dirty_axis'] = False
+        self.visual_dirty = set()
         self.source_text = path.read_text()
+
+    def _save_visual_origins(self, lines):
+        """Rewrite the ``<origin>`` line of each dirty link visual."""
+        link_ranges = self._link_line_ranges(lines)
+        edits = []
+        for link_name, index in self.visual_dirty:
+            bounds = link_ranges.get(link_name)
+            if bounds is not None:
+                edits.append((bounds[0], index, link_name, bounds))
+        for _, index, link_name, bounds in sorted(edits, reverse=True):
+            visual = self.link_visuals[link_name][index]
+            start, end = bounds
+            visual_seen = -1
+            origin_index = None
+            insert_index = None
+            indent = None
+            for line_index in range(start, end + 1):
+                stripped = lines[line_index].lstrip()
+                if stripped.startswith('<visual'):
+                    visual_seen += 1
+                    if visual_seen == index:
+                        indent = re.match(r'\s*', lines[line_index]).group(0) + '    '
+                        insert_index = line_index + 1
+                elif visual_seen == index and stripped.startswith('<origin'):
+                    origin_index = line_index
+                elif visual_seen == index and stripped.startswith('</visual'):
+                    break
+            if indent is None:
+                continue
+            new_line = '{}<origin xyz="{}" rpy="{}"/>'.format(
+                indent, format_vec(visual['xyz']), format_vec(visual['rpy']))
+            if origin_index is not None:
+                lines[origin_index] = new_line
+            elif insert_index is not None:
+                lines.insert(insert_index, new_line)
+
+    @staticmethod
+    def _link_line_ranges(lines):
+        ranges = {}
+        current = None
+        for index, line in enumerate(lines):
+            stripped = line.strip()
+            if stripped.startswith('<link '):
+                match = re.search(r'name="([^"]+)"', stripped)
+                current = match.group(1) if match else None
+                if current:
+                    ranges[current] = (index, index)
+            elif stripped.startswith('</link>'):
+                if current in ranges:
+                    start, _ = ranges[current]
+                    ranges[current] = (start, index)
+                current = None
+        return ranges
 
     @staticmethod
     def _joint_line_ranges(lines):

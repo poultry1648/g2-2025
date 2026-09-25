@@ -19,7 +19,7 @@
 
     <link name="intake_end_effector">
         <visual>
-            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <origin xyz="0.0 -0.111 -0.027" rpy="0.0 0.0 0.0"/>
             <geometry>
                 <mesh filename="package://g2_description/meshes/Intake End Effector.dae" />
             </geometry>
@@ -55,7 +55,7 @@
 
     <link name="shooter_body">
         <visual>
-            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <origin xyz="-0.003 -0.155 0.111" rpy="0.0 0.0 0.0"/>
             <geometry>
                 <mesh filename="package://g2_description/meshes/Shooter Body.dae" />
             </geometry>
@@ -73,7 +73,7 @@
 
     <link name="shooter_compliant_wheel_2">
         <visual>
-            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 1.57079633"/>
             <geometry>
                 <mesh filename="package://g2_description/meshes/Shooter Compliant Wheel.dae" />
             </geometry>
@@ -179,138 +179,138 @@
     </joint>
 
     <joint name="intake_pivot" type="revolute">
-        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <origin xyz="0.0 -0.13 0.031" rpy="0.0 0.0 0.0"/>
         <parent link="intake"/>
         <child link="intake_end_effector"/>
-        <axis xyz="0.0 0.0 0.0"/>
+        <axis xyz="1 0.0 0.0"/>
         <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
     </joint>
 
     <joint name="intake_left" type="continuous">
-        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <origin xyz="0.095 -0.119 -0.11" rpy="0.0 0.0 0.0"/>
         <parent link="intake_end_effector"/>
         <child link="intake_compliant_wheels_left"/>
-        <axis xyz="0.0 0.0 0.0"/>
+        <axis xyz="0.0 0.0 1"/>
         <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
     </joint>
 
     <joint name="intake_right" type="continuous">
-        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <origin xyz="-0.095 -0.119 -0.11" rpy="0.0 0.0 0.0"/>
         <parent link="intake_end_effector"/>
         <child link="intake_compliant_wheels_right"/>
-        <axis xyz="0.0 0.0 0.0"/>
+        <axis xyz="0.0 0.0 1"/>
         <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
     </joint>
 
     <joint name="shooter_dif_ring" type="revolute">
-        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <origin xyz="0.0 0.274 0.024" rpy="0.0 0.0 -0.479965544"/>
         <parent link="chassis"/>
         <child link="shooter_dif_ring"/>
-        <axis xyz="0.0 0.0 0.0"/>
+        <axis xyz="0.0 0.0 1"/>
         <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
     </joint>
 
     <joint name="shooter_body" type="revolute">
-        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <origin xyz="0.0 0.0 0.03" rpy="0.0 0.0 0.479965544"/>
         <parent link="shooter_dif_ring"/>
         <child link="shooter_body"/>
-        <axis xyz="0.0 0.0 0.0"/>
+        <axis xyz="1 0.0 0.0"/>
         <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
     </joint>
 
     <joint name="shooter_compliant_wheel_1" type="continuous">
-        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <origin xyz="0.0 -0.352 0.245" rpy="0.0 0.0 1.57079633"/>
         <parent link="shooter_body"/>
         <child link="shooter_compliant_wheel_1"/>
-        <axis xyz="0.0 0.0 0.0"/>
+        <axis xyz="0.0 1 0.0"/>
         <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
     </joint>
 
     <joint name="shooter_compliant_wheel_2" type="continuous">
-        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <origin xyz="0.068 -0.351 0.064" rpy="0.0 -0.785398163 0.0"/>
         <parent link="shooter_body"/>
         <child link="shooter_compliant_wheel_2"/>
-        <axis xyz="0.0 0.0 0.0"/>
+        <axis xyz="1 0.0 0.0"/>
         <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
     </joint>
 
     <joint name="shooter_compliant_wheel_3" type="continuous">
-        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <origin xyz="-0.078 -0.352 0.067" rpy="-2.35619449 0.0 1.57079633"/>
         <parent link="shooter_body"/>
         <child link="shooter_compliant_wheel_3"/>
-        <axis xyz="0.0 0.0 0.0"/>
+        <axis xyz="0.0 1 0.0"/>
         <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
     </joint>
 
     <joint name="shooter_compliant_wheel_feeder" type="continuous">
-        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <origin xyz="0.0 -0.035 0.245" rpy="0.0 0.0 1.57079633"/>
         <parent link="shooter_body"/>
         <child link="shooter_compliant_wheel_feeder"/>
-        <axis xyz="0.0 0.0 0.0"/>
+        <axis xyz="0.0 1 0.0"/>
         <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
     </joint>
 
     <joint name="swerve_axel_front_left" type="continuous">
-        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <origin xyz="0.264 -0.364 -0.088" rpy="0.0 0.0 0.0"/>
         <parent link="chassis"/>
         <child link="swerve_axel_front_left"/>
-        <axis xyz="0.0 0.0 0.0"/>
+        <axis xyz="0.0 0.0 1"/>
         <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
     </joint>
 
     <joint name="swerve_wheel_front_left" type="continuous">
-        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <origin xyz="0.002 0.0 -0.023" rpy="0.0 0.0 0.0"/>
         <parent link="swerve_axel_front_left"/>
         <child link="swerve_wheel_front_left"/>
-        <axis xyz="0.0 0.0 0.0"/>
+        <axis xyz="0.0 1 0.0"/>
         <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
     </joint>
 
     <joint name="swerve_axel_front_right" type="continuous">
-        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <origin xyz="-0.264 -0.364 -0.088" rpy="0.0 0.0 0.0"/>
         <parent link="chassis"/>
         <child link="swerve_axel_front_right"/>
-        <axis xyz="0.0 0.0 0.0"/>
+        <axis xyz="0.0 0.0 1"/>
         <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
     </joint>
 
     <joint name="swerve_wheel_front_right" type="continuous">
-        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <origin xyz="0.002 0.0 -0.023" rpy="0.0 0.0 0.0"/>
         <parent link="swerve_axel_front_right"/>
         <child link="swerve_wheel_front_right"/>
-        <axis xyz="0.0 0.0 0.0"/>
+        <axis xyz="0.0 1 0.0"/>
         <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
     </joint>
 
     <joint name="swerve_axel_back_left" type="continuous">
-        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <origin xyz="0.264 0.364 -0.088" rpy="0.0 0.0 0.0"/>
         <parent link="chassis"/>
         <child link="swerve_axel_back_left"/>
-        <axis xyz="0.0 0.0 0.0"/>
+        <axis xyz="0.0 0.0 1"/>
         <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
     </joint>
 
     <joint name="swerve_wheel_back_left" type="continuous">
-        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <origin xyz="0.002 0.0 -0.023" rpy="0.0 0.0 0.0"/>
         <parent link="swerve_axel_back_left"/>
         <child link="swerve_wheel_back_left"/>
-        <axis xyz="0.0 0.0 0.0"/>
+        <axis xyz="0.0 1 0.0"/>
         <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
     </joint>
 
     <joint name="swerve_axel_back_right" type="continuous">
-        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <origin xyz="-0.238 0.364 -0.088" rpy="0.0 0.0 0.0"/>
         <parent link="chassis"/>
         <child link="swerve_axel_back_right"/>
-        <axis xyz="0.0 0.0 0.0"/>
+        <axis xyz="0.0 0.0 1"/>
         <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
     </joint>
 
     <joint name="swerve_wheel_back_right" type="continuous">
-        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <origin xyz="0.002 0.0 -0.023" rpy="0.0 0.0 0.0"/>
         <parent link="swerve_axel_back_right"/>
         <child link="swerve_wheel_back_right"/>
-        <axis xyz="0.0 0.0 0.0"/>
+        <axis xyz="0.0 1 0.0"/>
         <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
     </joint>
 </robot>

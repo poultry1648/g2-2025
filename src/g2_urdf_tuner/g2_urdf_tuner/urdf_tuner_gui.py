@@ -44,6 +44,8 @@ AXIS_PRESETS = [
 ORIGIN_INDEX = {'x': 0, 'y': 1, 'z': 2}
 ROTATION_INDEX = {'roll': 0, 'pitch': 1, 'yaw': 2}
 AXIS_INDEX = {'ax': 0, 'ay': 1, 'az': 2}
+MESH_ORIGIN_INDEX = {'mx': 0, 'my': 1, 'mz': 2}
+MESH_ROTATION_INDEX = {'mroll': 0, 'mpitch': 1, 'myaw': 2}
 
 
 def _fmt(value, places):
@@ -130,22 +132,26 @@ class TunerApp:
         """Build the window and start the periodic publish loop."""
         self.backend = backend
         self.joint = None
+        self.mesh_link = None
+        self.mesh_index = 0
         self.tick_count = 0
 
         self.root = tk.Tk()
         self.root.title('URDF Tuner')
-        self.root.geometry('780x760')
+        self.root.geometry('780x900')
         self.root.protocol('WM_DELETE_WINDOW', self.root.destroy)
         self.root.columnconfigure(0, weight=1)
 
         self.axes_visible = tk.BooleanVar(master=self.root, value=True)
         self.status = tk.StringVar(master=self.root, value='')
         self.mesh_vars = {}
+        self.mesh_origin_rows = {}
 
         self._build_toolbar()
         self._build_origin_frame()
         self._build_axis_frame()
         self._build_value_frame()
+        self._build_mesh_origin_frame()
         self._build_mesh_frame()
         self._build_status()
         self._refresh_joint_list()
@@ -172,7 +178,7 @@ class TunerApp:
             command=self._toggle_axes).pack(side='left', padx=6)
 
     def _build_origin_frame(self):
-        frame = tk.LabelFrame(self.root, text='Origin')
+        frame = tk.LabelFrame(self.root, text='Joint origin (parent -> child frame)')
         frame.grid(row=1, column=0, sticky='ew', padx=6, pady=4)
         self.origin_rows = {}
         for index, (key, label, low, high, resolution, places) in enumerate(ORIGIN_SPECS):
@@ -207,12 +213,35 @@ class TunerApp:
 
     def _build_status(self):
         tk.Label(self.root, textvariable=self.status, anchor='w', fg='#444').grid(
-            row=5, column=0, sticky='ew', padx=8, pady=(2, 8))
+            row=6, column=0, sticky='ew', padx=8, pady=(2, 8))
+
+    def _build_mesh_origin_frame(self):
+        frame = tk.LabelFrame(
+            self.root, text="Mesh origin (selected joint's child link)")
+        frame.grid(row=4, column=0, sticky='ew', padx=6, pady=4)
+        self.mesh_link_var = tk.StringVar(master=frame, value='')
+        tk.Label(frame, textvariable=self.mesh_link_var, anchor='w', fg='#444').grid(
+            row=0, column=0, columnspan=3, sticky='w', padx=6)
+        specs = [
+            ('mx', 'x (m)', -1.0, 1.0, 0.001, 4),
+            ('my', 'y (m)', -1.0, 1.0, 0.001, 4),
+            ('mz', 'z (m)', -1.0, 1.0, 0.001, 4),
+            ('mroll', 'roll (deg)', -180.0, 180.0, 0.5, 1),
+            ('mpitch', 'pitch (deg)', -180.0, 180.0, 0.5, 1),
+            ('myaw', 'yaw (deg)', -180.0, 180.0, 0.5, 1),
+        ]
+        for index, (key, label, low, high, resolution, places) in enumerate(specs):
+            self.mesh_origin_rows[key] = ValueRow(
+                frame, index + 1, label, low, high, resolution,
+                lambda value, k=key: self._on_mesh_origin(k, value), places)
+        tk.Button(frame, text='Reset mesh origin',
+                  command=self._reset_mesh_origin).grid(
+            row=len(specs) + 1, column=0, columnspan=3, sticky='w', padx=6, pady=(2, 4))
 
     def _build_mesh_frame(self):
         frame = tk.LabelFrame(self.root, text='Meshes (tick a link to show it)')
-        frame.grid(row=4, column=0, sticky='nsew', padx=6, pady=4)
-        self.root.rowconfigure(4, weight=1)
+        frame.grid(row=5, column=0, sticky='nsew', padx=6, pady=4)
+        self.root.rowconfigure(5, weight=1)
         buttons = tk.Frame(frame)
         buttons.pack(fill='x', pady=(2, 2))
         tk.Button(buttons, text='Show all',
@@ -266,6 +295,7 @@ class TunerApp:
         self._load_origin(joint)
         self._load_axis(joint)
         self._load_value(joint)
+        self._load_mesh_origin(joint)
         self.status.set('Editing %s [%s]' % (joint['name'], joint['type']))
 
     def _configure_value_row(self, joint):
@@ -293,6 +323,27 @@ class TunerApp:
             self.value_row.set_value(joint['value'] / DEG)
         else:
             self.value_row.set_value(joint['value'])
+
+    def _load_mesh_origin(self, joint):
+        visuals = self.backend.model.link_visuals.get(joint['child'], [])
+        self.mesh_link = None
+        self.mesh_index = 0
+        enabled = len(visuals) > 0
+        for row in self.mesh_origin_rows.values():
+            row.set_enabled(enabled)
+        if not enabled:
+            self.mesh_link_var.set('%s: no mesh visual' % joint['child'])
+            for row in self.mesh_origin_rows.values():
+                row.set_value(0.0)
+            return
+        self.mesh_link = joint['child']
+        self.mesh_link_var.set('%s: %s' % (
+            joint['child'], visuals[0]['filename'].split('/')[-1]))
+        xyz, rpy = self.backend.model.visual_origin(self.mesh_link, self.mesh_index)
+        for key, axis_index in MESH_ORIGIN_INDEX.items():
+            self.mesh_origin_rows[key].set_value(xyz[axis_index])
+        for key, axis_index in MESH_ROTATION_INDEX.items():
+            self.mesh_origin_rows[key].set_value(rpy[axis_index] / DEG)
 
     # -- slider callbacks -------------------------------------------------
 
@@ -339,6 +390,29 @@ class TunerApp:
         if norm > 1e-9:
             self.backend.model.set_axis(self.joint['name'], (axis / norm).tolist())
             self._load_axis(self.joint)
+
+    def _on_mesh_origin(self, key, value):
+        if self.mesh_link is None:
+            return
+        visual = self.backend.model.link_visuals[self.mesh_link][self.mesh_index]
+        xyz = list(visual['xyz'])
+        rpy = list(visual['rpy'])
+        if key in MESH_ORIGIN_INDEX:
+            xyz[MESH_ORIGIN_INDEX[key]] = value
+        else:
+            rpy[MESH_ROTATION_INDEX[key]] = value * DEG
+        self.backend.model.set_visual_origin(
+            self.mesh_link, self.mesh_index, xyz=xyz, rpy=rpy)
+        self.backend.mark_meshes_dirty()
+
+    def _reset_mesh_origin(self):
+        if self.mesh_link is None:
+            return
+        self.backend.model.set_visual_origin(
+            self.mesh_link, self.mesh_index, [0.0, 0.0, 0.0], [0.0, 0.0, 0.0])
+        self.backend.mark_meshes_dirty()
+        if self.joint is not None:
+            self._load_mesh_origin(self.joint)
 
     # -- toolbar actions --------------------------------------------------
 
