@@ -8,30 +8,167 @@
         </visual>
     </link>
 
-    <link name="intake" />
-    <link name="intake_end_effector" />
-    <link name="intake_compliant_wheels_left" />
-    <link name="intake_compliant_wheels_right" />
+    <link name="intake" >
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://g2_description/meshes/Intake.dae" />
+            </geometry>
+        </visual>
+    </link>
 
-    <link name="shooter_dif_ring" />
-    <link name="shooter_body" />
+    <link name="intake_end_effector">
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://g2_description/meshes/Intake End Effector.dae" />
+            </geometry>
+        </visual>
+    </link>
 
-    <link name="shooter_compliant_wheel_1" />
-    <link name="shooter_compliant_wheel_2" />
-    <link name="shooter_compliant_wheel_3" />
-    <link name="shooter_compliant_wheel_feeder" />
+    <link name="intake_compliant_wheels_left">
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://g2_description/meshes/Intake Compliant Wheel Stack.dae" />
+            </geometry>
+        </visual>
+    </link>
 
-    <link name="swerve_axel_front_left" />
-    <link name="swerve_wheel_front_left" />
+    <link name="intake_compliant_wheels_right">
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://g2_description/meshes/Intake Compliant Wheel Stack.dae" />
+            </geometry>
+        </visual>
+    </link>
 
-    <link name="swerve_axel_front_right" />
-    <link name="swerve_wheel_front_right" />
+    <link name="shooter_dif_ring">
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://g2_description/meshes/Dif Ring.dae" />
+            </geometry>
+        </visual>
+    </link>
 
-    <link name="swerve_axel_back_left" />
-    <link name="swerve_wheel_back_left" />
+    <link name="shooter_body">
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://g2_description/meshes/Shooter Body.dae" />
+            </geometry>
+        </visual>
+    </link>
 
-    <link name="swerve_axel_back_right" />
-    <link name="swerve_wheel_back_right" />
+    <link name="shooter_compliant_wheel_1">
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://g2_description/meshes/Shooter Compliant Wheel.dae" />
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="shooter_compliant_wheel_2">
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://g2_description/meshes/Shooter Compliant Wheel.dae" />
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="shooter_compliant_wheel_3">
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://g2_description/meshes/Shooter Compliant Wheel.dae" />
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="shooter_compliant_wheel_feeder">
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://g2_description/meshes/Shooter Compliant Wheel.dae" />
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="swerve_axel_front_left">
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://g2_description/meshes/Swerve Axel.dae" />
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="swerve_wheel_front_left">
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://g2_description/meshes/Swerve Wheel.dae" />
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="swerve_axel_front_right">
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://g2_description/meshes/Swerve Axel.dae" />
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="swerve_wheel_front_right">
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://g2_description/meshes/Swerve Wheel.dae" />
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="swerve_axel_back_left">
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://g2_description/meshes/Swerve Axel.dae" />
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="swerve_wheel_back_left">
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://g2_description/meshes/Swerve Wheel.dae" />
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="swerve_axel_back_right">
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://g2_description/meshes/Swerve Axel.dae" />
+            </geometry>
+        </visual>
+    </link>
+
+    <link name="swerve_wheel_back_right">
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://g2_description/meshes/Swerve Wheel.dae" />
+            </geometry>
+        </visual>
+    </link>
 
     <joint name="linear_actuators" type="prismatic">
         <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
