@@ -171,10 +171,10 @@
     </link>
 
     <joint name="linear_actuators" type="prismatic">
-        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <origin xyz="0.0 -0.341 0.038" rpy="0.0 0.0 0.0"/>
         <parent link="chassis"/>
         <child link="intake"/>
-        <axis xyz="0.0 0.0 0.0"/>
+        <axis xyz="0.0 1 0.0"/>
         <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
     </joint>
 
