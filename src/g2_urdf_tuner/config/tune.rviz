@@ -21,7 +21,7 @@ Visualization Manager:
         Value: /robot_description
       Enabled: true
       Name: RobotModel
-      Visual Enabled: true
+      Visual Enabled: false
     - Class: rviz_default_plugins/TF
       Enabled: true
       Marker Scale: 0.15
@@ -29,6 +29,15 @@ Visualization Manager:
       Show Arrows: false
       Show Axes: true
       Show Names: false
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: Meshes
+      Topic:
+        Depth: 1
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /urdf_tuner/meshes
     - Class: rviz_default_plugins/MarkerArray
       Enabled: true
       Name: JointAxes

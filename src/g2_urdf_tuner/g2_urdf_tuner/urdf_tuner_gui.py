@@ -134,19 +134,22 @@ class TunerApp:
 
         self.root = tk.Tk()
         self.root.title('URDF Tuner')
-        self.root.geometry('640x560')
+        self.root.geometry('780x760')
         self.root.protocol('WM_DELETE_WINDOW', self.root.destroy)
         self.root.columnconfigure(0, weight=1)
 
         self.axes_visible = tk.BooleanVar(master=self.root, value=True)
         self.status = tk.StringVar(master=self.root, value='')
+        self.mesh_vars = {}
 
         self._build_toolbar()
         self._build_origin_frame()
         self._build_axis_frame()
         self._build_value_frame()
+        self._build_mesh_frame()
         self._build_status()
         self._refresh_joint_list()
+        self._refresh_mesh_list()
 
         self.root.after(33, self._tick)
 
@@ -204,7 +207,20 @@ class TunerApp:
 
     def _build_status(self):
         tk.Label(self.root, textvariable=self.status, anchor='w', fg='#444').grid(
-            row=4, column=0, sticky='ew', padx=8, pady=(2, 8))
+            row=5, column=0, sticky='ew', padx=8, pady=(2, 8))
+
+    def _build_mesh_frame(self):
+        frame = tk.LabelFrame(self.root, text='Meshes (tick a link to show it)')
+        frame.grid(row=4, column=0, sticky='nsew', padx=6, pady=4)
+        self.root.rowconfigure(4, weight=1)
+        buttons = tk.Frame(frame)
+        buttons.pack(fill='x', pady=(2, 2))
+        tk.Button(buttons, text='Show all',
+                  command=lambda: self._set_all_meshes(True)).pack(side='left', padx=2)
+        tk.Button(buttons, text='Hide all',
+                  command=lambda: self._set_all_meshes(False)).pack(side='left', padx=2)
+        self.mesh_check_frame = tk.Frame(frame)
+        self.mesh_check_frame.pack(fill='both', expand=True)
 
     # -- joint selection --------------------------------------------------
 
@@ -214,6 +230,28 @@ class TunerApp:
         if names:
             self.joint_combo.set(names[0])
             self._select_joint(names[0])
+
+    def _refresh_mesh_list(self):
+        for child in self.mesh_check_frame.winfo_children():
+            child.destroy()
+        self.mesh_vars = {}
+        for index, link_name in enumerate(self.backend.model.link_visuals):
+            var = tk.BooleanVar(
+                master=self.mesh_check_frame,
+                value=self.backend.mesh_visibility.get(link_name, True))
+            check = tk.Checkbutton(
+                self.mesh_check_frame, text=link_name, variable=var, anchor='w',
+                command=lambda name=link_name: self._on_mesh_toggle(name))
+            check.grid(row=index // 3, column=index % 3, sticky='w', padx=4, pady=1)
+            self.mesh_vars[link_name] = var
+
+    def _on_mesh_toggle(self, link_name):
+        self.backend.set_link_visible(link_name, self.mesh_vars[link_name].get())
+
+    def _set_all_meshes(self, visible):
+        for var in self.mesh_vars.values():
+            var.set(visible)
+        self.backend.set_all_links_visible(visible)
 
     def _on_joint_selected(self, _event=None):
         self._select_joint(self.joint_var.get())
@@ -269,6 +307,7 @@ class TunerApp:
             rpy = list(self.joint['rpy'])
             rpy[ROTATION_INDEX[key]] = value * DEG
             self.backend.model.set_origin(self.joint['name'], rpy=rpy)
+        self.backend.mark_meshes_dirty()
 
     def _on_axis(self, key, value):
         if self.joint is None:
@@ -284,6 +323,7 @@ class TunerApp:
             self.joint['value'] = value * DEG
         else:
             self.joint['value'] = value
+        self.backend.mark_meshes_dirty()
 
     def _set_axis_preset(self, vector):
         if self.joint is None:
@@ -309,12 +349,14 @@ class TunerApp:
     def _reload(self):
         self.backend.reload()
         self._refresh_joint_list()
+        self._refresh_mesh_list()
         self.status.set('Reloaded %s' % self.backend.urdf_path)
 
     def _zero_origin(self):
         if self.joint is None:
             return
         self.backend.model.set_origin(self.joint['name'], [0.0, 0.0, 0.0], [0.0, 0.0, 0.0])
+        self.backend.mark_meshes_dirty()
         self._load_origin(self.joint)
         self.status.set('Zeroed origin of %s' % self.joint['name'])
 

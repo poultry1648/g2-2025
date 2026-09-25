@@ -8,7 +8,7 @@ axes. A front end (the tkinter slider panel) mutates the model and calls
 """
 
 from g2_urdf_tuner.tf_publisher import TfPublisher
-from g2_urdf_tuner.urdf_model import matrix_to_quaternion, UrdfModel
+from g2_urdf_tuner.urdf_model import matrix_to_quaternion, origin_matrix, UrdfModel
 import numpy as np
 from visualization_msgs.msg import Marker
 from visualization_msgs.msg import MarkerArray
@@ -27,6 +27,11 @@ class TunerBackend:
         self.model = UrdfModel(urdf_path)
         self.tf = TfPublisher(node, self.model)
         self._axes_pub = node.create_publisher(MarkerArray, 'urdf_tuner/axes', 1)
+        self._mesh_pub = node.create_publisher(MarkerArray, 'urdf_tuner/meshes', 1)
+        self.mesh_visibility = {}
+        self._mesh_dirty = True
+        self._mesh_heartbeat = 0
+        self._reset_mesh_visibility()
         self.publish_description()
 
     def publish_description(self):
@@ -41,6 +46,7 @@ class TunerBackend:
         """Discard edits and reload the URDF from disk."""
         self.model = UrdfModel(self.urdf_path)
         self.tf.model = self.model
+        self._reset_mesh_visibility()
         self.publish_description()
 
     def set_axes_visible(self, visible):
@@ -52,10 +58,33 @@ class TunerBackend:
             self._axes_pub.publish(array)
 
     def tick(self):
-        """Broadcast TF, joint states and (optionally) the axis arrows."""
+        """Broadcast TF, joint states and the pending marker updates."""
         self.tf.publish()
         if self.axes_visible:
             self._publish_axes()
+        self._mesh_heartbeat = (self._mesh_heartbeat + 1) % 30
+        if self._mesh_dirty or self._mesh_heartbeat == 0:
+            self.publish_meshes()
+
+    def _reset_mesh_visibility(self):
+        """Reset every link's mesh to visible and force a republish."""
+        self.mesh_visibility = {name: True for name in self.model.link_visuals}
+        self._mesh_dirty = True
+
+    def set_link_visible(self, link_name, visible):
+        """Show or hide one link's mesh and republish immediately."""
+        self.mesh_visibility[link_name] = bool(visible)
+        self.publish_meshes()
+
+    def set_all_links_visible(self, visible):
+        """Show or hide every link's mesh and republish immediately."""
+        for link_name in self.mesh_visibility:
+            self.mesh_visibility[link_name] = bool(visible)
+        self.publish_meshes()
+
+    def mark_meshes_dirty(self):
+        """Flag that link poses changed and the meshes must be republished."""
+        self._mesh_dirty = True
 
     def warn_on_conflicts(self):
         """Warn if another node also publishes TF or the description."""
@@ -139,3 +168,45 @@ class TunerBackend:
             marker.color.a = alpha
             array.markers.append(marker)
         self._axes_pub.publish(array)
+
+    def publish_meshes(self):
+        """
+        Publish one mesh marker per visual, deleting the hidden links.
+
+        Driving the meshes as markers (rather than editing the URDF) means a
+        link can be hidden or shown instantly without RViz reloading anything.
+        """
+        array = MarkerArray()
+        stamp = self.node.get_clock().now().to_msg()
+        transforms = self.model.link_world_transforms()
+        marker_id = 0
+        for link_name, visuals in self.model.link_visuals.items():
+            link_matrix = transforms.get(link_name)
+            visible = self.mesh_visibility.get(link_name, True)
+            for visual in visuals:
+                marker = Marker()
+                marker.header.stamp = stamp
+                marker.header.frame_id = self.model.root_link
+                marker.ns = 'link_meshes'
+                marker.id = marker_id
+                marker.type = Marker.MESH_RESOURCE
+                marker.action = Marker.ADD if visible else Marker.DELETE
+                if visible and link_matrix is not None:
+                    matrix = link_matrix @ origin_matrix(visual)
+                    quaternion = matrix_to_quaternion(matrix[:3, :3])
+                    marker.pose.position.x = float(matrix[0, 3])
+                    marker.pose.position.y = float(matrix[1, 3])
+                    marker.pose.position.z = float(matrix[2, 3])
+                    marker.pose.orientation.x = float(quaternion[0])
+                    marker.pose.orientation.y = float(quaternion[1])
+                    marker.pose.orientation.z = float(quaternion[2])
+                    marker.pose.orientation.w = float(quaternion[3])
+                    marker.scale.x = float(visual['scale'][0])
+                    marker.scale.y = float(visual['scale'][1])
+                    marker.scale.z = float(visual['scale'][2])
+                    marker.mesh_resource = visual['filename']
+                    marker.mesh_use_embedded_materials = True
+                array.markers.append(marker)
+                marker_id += 1
+        self._mesh_pub.publish(array)
+        self._mesh_dirty = False

@@ -172,6 +172,7 @@ class UrdfModel:
         self.source_text = Path(self.path).read_text()
         self.root = ET.fromstring(self.source_text)
         self.links = {}
+        self.link_visuals = {}
         self.joints = []
         self.joint_by_name = {}
         self.child_joint = {}
@@ -181,6 +182,7 @@ class UrdfModel:
         for link in self.root:
             if _tag(link) == 'link':
                 self.links[link.get('name')] = link
+                self.link_visuals[link.get('name')] = self._parse_visuals(link)
         for element in self.root:
             if _tag(element) != 'joint':
                 continue
@@ -220,6 +222,38 @@ class UrdfModel:
             self.joint_by_name[joint['name']] = joint
             self.child_joint[joint['child']] = joint
         self.root_links = [name for name in self.links if name not in self.child_joint]
+
+    @staticmethod
+    def _parse_visuals(link):
+        """Collect the mesh visuals of a link as origin/filename/scale dicts."""
+        visuals = []
+        for visual in link:
+            if _tag(visual) != 'visual':
+                continue
+            origin = None
+            geometry = None
+            for sub in visual:
+                tag = _tag(sub)
+                if tag == 'origin':
+                    origin = sub
+                elif tag == 'geometry':
+                    geometry = sub
+            mesh = None
+            if geometry is not None:
+                for sub in geometry:
+                    if _tag(sub) == 'mesh':
+                        mesh = sub
+            if mesh is None or not mesh.get('filename'):
+                continue
+            visuals.append({
+                'xyz': _parse_vec(origin.get('xyz') if origin is not None else None,
+                                  [0.0, 0.0, 0.0]),
+                'rpy': _parse_vec(origin.get('rpy') if origin is not None else None,
+                                  [0.0, 0.0, 0.0]),
+                'filename': mesh.get('filename'),
+                'scale': _parse_vec(mesh.get('scale'), [1.0, 1.0, 1.0]),
+            })
+        return visuals
 
     @property
     def root_link(self):
