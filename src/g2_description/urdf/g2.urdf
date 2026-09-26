@@ -3,171 +3,380 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="package://g2_description/meshes/Chassis.dae" scale="1 1 1" />
+                <mesh filename="package://g2_description/meshes/visual/Chassis.glb" scale="1 1 1" />
             </geometry>
         </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <mesh filename="package://g2_description/meshes/collision/Chassis.stl" scale="1 1 1" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="-0.00067908014 -0.031952115 -0.021337977" rpy="0 0 0" />
+            <mass value="25" />
+            <inertia ixx="1.9478047" ixy="-0.0019401169" ixz="-0.0004824074" iyy="1.2101866" iyz="0.070155444" izz="3.0241928" />
+        </inertial>
     </link>
 
     <link name="intake" >
         <visual>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/Intake.dae" />
+                <mesh filename="package://g2_description/meshes/visual/Intake.glb" />
             </geometry>
         </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://g2_description/meshes/collision/Intake.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="-0.00076520642 0.022013477 0.012904314" rpy="0 0 0" />
+            <mass value="3" />
+            <inertia ixx="0.022889834" ixy="0.00016689705" ixz="-9.1657266e-05" iyy="0.033692911" iyz="0.001472618" izz="0.052137512" />
+        </inertial>
     </link>
 
     <link name="intake_end_effector">
         <visual>
             <origin xyz="0.0 -0.111 -0.027" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/Intake End Effector.dae" />
+                <mesh filename="package://g2_description/meshes/visual/Intake_End_Effector.glb" />
             </geometry>
         </visual>
+        <collision>
+            <origin xyz="0.0 -0.111 -0.027" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://g2_description/meshes/collision/Intake_End_Effector.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="-0.00010417649 -0.10710812 -0.02694162" rpy="0 0 0" />
+            <mass value="1.5" />
+            <inertia ixx="0.0091251921" ixy="-1.107071e-05" ixz="-9.6844567e-06" iyy="0.011348295" iyz="-0.0017800117" izz="0.017354736" />
+        </inertial>
     </link>
 
     <link name="intake_compliant_wheels_left">
         <visual>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/Intake Compliant Wheel Stack.dae" />
+                <mesh filename="package://g2_description/meshes/visual/Intake_Compliant_Wheel_Stack.glb" />
             </geometry>
         </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://g2_description/meshes/collision/Intake_Compliant_Wheel_Stack.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 -0.017832222" rpy="0 0 0" />
+            <mass value="0.3" />
+            <inertia ixx="0.00065160621" ixy="0" ixz="0" iyy="0.00065161246" iyz="0" izz="0.00035880955" />
+        </inertial>
     </link>
 
     <link name="intake_compliant_wheels_right">
         <visual>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/Intake Compliant Wheel Stack.dae" />
+                <mesh filename="package://g2_description/meshes/visual/Intake_Compliant_Wheel_Stack.glb" />
             </geometry>
         </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://g2_description/meshes/collision/Intake_Compliant_Wheel_Stack.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0 -0.017832222" rpy="0 0 0" />
+            <mass value="0.3" />
+            <inertia ixx="0.00065160621" ixy="0" ixz="0" iyy="0.00065161246" iyz="0" izz="0.00035880955" />
+        </inertial>
     </link>
 
     <link name="shooter_dif_ring">
         <visual>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/Dif Ring.dae" />
+                <mesh filename="package://g2_description/meshes/visual/Dif_Ring.glb" />
             </geometry>
         </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://g2_description/meshes/collision/Dif_Ring.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="4.9619614e-06 -3.6790772e-06 -0.020494403" rpy="0 0 0" />
+            <mass value="1" />
+            <inertia ixx="0.0052761423" ixy="8.3897307e-05" ixz="7.178665e-07" iyy="0.005176682" iyz="0" izz="0.0046413948" />
+        </inertial>
     </link>
 
     <link name="shooter_body">
         <visual>
             <origin xyz="-0.003 -0.155 0.111" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/Shooter Body.dae" />
+                <mesh filename="package://g2_description/meshes/visual/Shooter_Body.glb" />
             </geometry>
         </visual>
+        <collision>
+            <origin xyz="-0.003 -0.155 0.111" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://g2_description/meshes/collision/Shooter_Body.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="-0.0017944762 -0.17712578 0.11145613" rpy="0 0 0" />
+            <mass value="4" />
+            <inertia ixx="0.078941144" ixy="-1.6371313e-05" ixz="-0.00019549956" iyy="0.040118542" iyz="0.0085383692" izz="0.059050931" />
+        </inertial>
     </link>
 
     <link name="shooter_compliant_wheel_1">
         <visual>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/Shooter Compliant Wheel.dae" />
+                <mesh filename="package://g2_description/meshes/visual/Shooter_Compliant_Wheel.glb" />
             </geometry>
         </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://g2_description/meshes/collision/Shooter_Compliant_Wheel.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="7.1866873e-07 -1.2950171e-06 -2.2785047e-05" rpy="0 0 0" />
+            <mass value="0.25" />
+            <inertia ixx="0.00017051551" ixy="0" ixz="0" iyy="0.00031433596" iyz="0" izz="0.00017062543" />
+        </inertial>
     </link>
 
     <link name="shooter_compliant_wheel_2">
         <visual>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 1.57079633"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/Shooter Compliant Wheel.dae" />
+                <mesh filename="package://g2_description/meshes/visual/Shooter_Compliant_Wheel.glb" />
             </geometry>
         </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 1.57079633"/>
+            <geometry>
+                <mesh filename="package://g2_description/meshes/collision/Shooter_Compliant_Wheel.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="1.2950171e-06 7.1866874e-07 -2.2785047e-05" rpy="0 0 0" />
+            <mass value="0.25" />
+            <inertia ixx="0.00031433596" ixy="0" ixz="0" iyy="0.00017051551" iyz="0" izz="0.00017062543" />
+        </inertial>
     </link>
 
     <link name="shooter_compliant_wheel_3">
         <visual>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/Shooter Compliant Wheel.dae" />
+                <mesh filename="package://g2_description/meshes/visual/Shooter_Compliant_Wheel.glb" />
             </geometry>
         </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://g2_description/meshes/collision/Shooter_Compliant_Wheel.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="7.1866873e-07 -1.2950171e-06 -2.2785047e-05" rpy="0 0 0" />
+            <mass value="0.25" />
+            <inertia ixx="0.00017051551" ixy="0" ixz="0" iyy="0.00031433596" iyz="0" izz="0.00017062543" />
+        </inertial>
     </link>
 
     <link name="shooter_compliant_wheel_feeder">
         <visual>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/Shooter Compliant Wheel.dae" />
+                <mesh filename="package://g2_description/meshes/visual/Shooter_Compliant_Wheel.glb" />
             </geometry>
         </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://g2_description/meshes/collision/Shooter_Compliant_Wheel.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="7.1866873e-07 -1.2950171e-06 -2.2785047e-05" rpy="0 0 0" />
+            <mass value="0.25" />
+            <inertia ixx="0.00017051551" ixy="0" ixz="0" iyy="0.00031433596" iyz="0" izz="0.00017062543" />
+        </inertial>
     </link>
 
     <link name="swerve_axel_front_left">
         <visual>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/Swerve Axel.dae" />
+                <mesh filename="package://g2_description/meshes/visual/Swerve_Axel.glb" />
             </geometry>
         </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://g2_description/meshes/collision/Swerve_Axel.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0.0028776477 0.011266853" rpy="0 0 0" />
+            <mass value="1.5" />
+            <inertia ixx="0.0014793695" ixy="0" ixz="0" iyy="0.0012743002" iyz="0.00010780807" izz="0.0015453743" />
+        </inertial>
     </link>
 
     <link name="swerve_wheel_front_left">
         <visual>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/Swerve Wheel.dae" />
+                <mesh filename="package://g2_description/meshes/visual/Swerve_Wheel.glb" />
             </geometry>
         </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://g2_description/meshes/collision/Swerve_Wheel.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 1.1124979e-06 0" rpy="0 0 0" />
+            <mass value="0.6" />
+            <inertia ixx="0.00056436164" ixy="0" ixz="0" iyy="0.00076883741" iyz="0" izz="0.00056436535" />
+        </inertial>
     </link>
 
     <link name="swerve_axel_front_right">
         <visual>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/Swerve Axel.dae" />
+                <mesh filename="package://g2_description/meshes/visual/Swerve_Axel.glb" />
             </geometry>
         </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://g2_description/meshes/collision/Swerve_Axel.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0.0028776477 0.011266853" rpy="0 0 0" />
+            <mass value="1.5" />
+            <inertia ixx="0.0014793695" ixy="0" ixz="0" iyy="0.0012743002" iyz="0.00010780807" izz="0.0015453743" />
+        </inertial>
     </link>
 
     <link name="swerve_wheel_front_right">
         <visual>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/Swerve Wheel.dae" />
+                <mesh filename="package://g2_description/meshes/visual/Swerve_Wheel.glb" />
             </geometry>
         </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://g2_description/meshes/collision/Swerve_Wheel.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 1.1124979e-06 0" rpy="0 0 0" />
+            <mass value="0.6" />
+            <inertia ixx="0.00056436164" ixy="0" ixz="0" iyy="0.00076883741" iyz="0" izz="0.00056436535" />
+        </inertial>
     </link>
 
     <link name="swerve_axel_back_left">
         <visual>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/Swerve Axel.dae" />
+                <mesh filename="package://g2_description/meshes/visual/Swerve_Axel.glb" />
             </geometry>
         </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://g2_description/meshes/collision/Swerve_Axel.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0.0028776477 0.011266853" rpy="0 0 0" />
+            <mass value="1.5" />
+            <inertia ixx="0.0014793695" ixy="0" ixz="0" iyy="0.0012743002" iyz="0.00010780807" izz="0.0015453743" />
+        </inertial>
     </link>
 
     <link name="swerve_wheel_back_left">
         <visual>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/Swerve Wheel.dae" />
+                <mesh filename="package://g2_description/meshes/visual/Swerve_Wheel.glb" />
             </geometry>
         </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://g2_description/meshes/collision/Swerve_Wheel.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 1.1124979e-06 0" rpy="0 0 0" />
+            <mass value="0.6" />
+            <inertia ixx="0.00056436164" ixy="0" ixz="0" iyy="0.00076883741" iyz="0" izz="0.00056436535" />
+        </inertial>
     </link>
 
     <link name="swerve_axel_back_right">
         <visual>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/Swerve Axel.dae" />
+                <mesh filename="package://g2_description/meshes/visual/Swerve_Axel.glb" />
             </geometry>
         </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://g2_description/meshes/collision/Swerve_Axel.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 0.0028776477 0.011266853" rpy="0 0 0" />
+            <mass value="1.5" />
+            <inertia ixx="0.0014793695" ixy="0" ixz="0" iyy="0.0012743002" iyz="0.00010780807" izz="0.0015453743" />
+        </inertial>
     </link>
 
     <link name="swerve_wheel_back_right">
         <visual>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/Swerve Wheel.dae" />
+                <mesh filename="package://g2_description/meshes/visual/Swerve_Wheel.glb" />
             </geometry>
         </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://g2_description/meshes/collision/Swerve_Wheel.stl" />
+            </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0 1.1124979e-06 0" rpy="0 0 0" />
+            <mass value="0.6" />
+            <inertia ixx="0.00056436164" ixy="0" ixz="0" iyy="0.00076883741" iyz="0" izz="0.00056436535" />
+        </inertial>
     </link>
 
     <joint name="linear_actuators" type="prismatic">
@@ -202,7 +411,7 @@
         <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
     </joint>
 
-    <joint name="shooter_dif_ring" type="revolute">
+    <joint name="shooter_dif_ring_joint" type="revolute">
         <origin xyz="0.0 0.274 0.024" rpy="0.0 0.0 -0.479965544"/>
         <parent link="chassis"/>
         <child link="shooter_dif_ring"/>
@@ -210,7 +419,7 @@
         <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
     </joint>
 
-    <joint name="shooter_body" type="revolute">
+    <joint name="shooter_body_joint" type="revolute">
         <origin xyz="0.0 0.0 0.03" rpy="0.0 0.0 0.479965544"/>
         <parent link="shooter_dif_ring"/>
         <child link="shooter_body"/>
@@ -218,7 +427,7 @@
         <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
     </joint>
 
-    <joint name="shooter_compliant_wheel_1" type="continuous">
+    <joint name="shooter_compliant_wheel_1_joint" type="continuous">
         <origin xyz="0.0 -0.352 0.245" rpy="0.0 0.0 1.57079633"/>
         <parent link="shooter_body"/>
         <child link="shooter_compliant_wheel_1"/>
@@ -226,7 +435,7 @@
         <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
     </joint>
 
-    <joint name="shooter_compliant_wheel_2" type="continuous">
+    <joint name="shooter_compliant_wheel_2_joint" type="continuous">
         <origin xyz="0.068 -0.351 0.064" rpy="0.0 -0.785398163 0.0"/>
         <parent link="shooter_body"/>
         <child link="shooter_compliant_wheel_2"/>
@@ -234,7 +443,7 @@
         <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
     </joint>
 
-    <joint name="shooter_compliant_wheel_3" type="continuous">
+    <joint name="shooter_compliant_wheel_3_joint" type="continuous">
         <origin xyz="-0.078 -0.352 0.067" rpy="-2.35619449 0.0 1.57079633"/>
         <parent link="shooter_body"/>
         <child link="shooter_compliant_wheel_3"/>
@@ -242,7 +451,7 @@
         <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
     </joint>
 
-    <joint name="shooter_compliant_wheel_feeder" type="continuous">
+    <joint name="shooter_compliant_wheel_feeder_joint" type="continuous">
         <origin xyz="0.0 -0.035 0.245" rpy="0.0 0.0 1.57079633"/>
         <parent link="shooter_body"/>
         <child link="shooter_compliant_wheel_feeder"/>
@@ -250,7 +459,7 @@
         <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
     </joint>
 
-    <joint name="swerve_axel_front_left" type="continuous">
+    <joint name="swerve_axel_front_left_joint" type="continuous">
         <origin xyz="0.264 -0.364 -0.088" rpy="0.0 0.0 0.0"/>
         <parent link="chassis"/>
         <child link="swerve_axel_front_left"/>
@@ -258,7 +467,7 @@
         <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
     </joint>
 
-    <joint name="swerve_wheel_front_left" type="continuous">
+    <joint name="swerve_wheel_front_left_joint" type="continuous">
         <origin xyz="0.002 0.0 -0.023" rpy="0.0 0.0 0.0"/>
         <parent link="swerve_axel_front_left"/>
         <child link="swerve_wheel_front_left"/>
@@ -266,7 +475,7 @@
         <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
     </joint>
 
-    <joint name="swerve_axel_front_right" type="continuous">
+    <joint name="swerve_axel_front_right_joint" type="continuous">
         <origin xyz="-0.264 -0.364 -0.088" rpy="0.0 0.0 0.0"/>
         <parent link="chassis"/>
         <child link="swerve_axel_front_right"/>
@@ -274,7 +483,7 @@
         <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
     </joint>
 
-    <joint name="swerve_wheel_front_right" type="continuous">
+    <joint name="swerve_wheel_front_right_joint" type="continuous">
         <origin xyz="0.002 0.0 -0.023" rpy="0.0 0.0 0.0"/>
         <parent link="swerve_axel_front_right"/>
         <child link="swerve_wheel_front_right"/>
@@ -282,7 +491,7 @@
         <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
     </joint>
 
-    <joint name="swerve_axel_back_left" type="continuous">
+    <joint name="swerve_axel_back_left_joint" type="continuous">
         <origin xyz="0.264 0.364 -0.088" rpy="0.0 0.0 0.0"/>
         <parent link="chassis"/>
         <child link="swerve_axel_back_left"/>
@@ -290,7 +499,7 @@
         <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
     </joint>
 
-    <joint name="swerve_wheel_back_left" type="continuous">
+    <joint name="swerve_wheel_back_left_joint" type="continuous">
         <origin xyz="0.002 0.0 -0.023" rpy="0.0 0.0 0.0"/>
         <parent link="swerve_axel_back_left"/>
         <child link="swerve_wheel_back_left"/>
@@ -298,7 +507,7 @@
         <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
     </joint>
 
-    <joint name="swerve_axel_back_right" type="continuous">
+    <joint name="swerve_axel_back_right_joint" type="continuous">
         <origin xyz="-0.238 0.364 -0.088" rpy="0.0 0.0 0.0"/>
         <parent link="chassis"/>
         <child link="swerve_axel_back_right"/>
@@ -306,7 +515,7 @@
         <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
     </joint>
 
-    <joint name="swerve_wheel_back_right" type="continuous">
+    <joint name="swerve_wheel_back_right_joint" type="continuous">
         <origin xyz="0.002 0.0 -0.023" rpy="0.0 0.0 0.0"/>
         <parent link="swerve_axel_back_right"/>
         <child link="swerve_wheel_back_right"/>
