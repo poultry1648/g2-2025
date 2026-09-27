@@ -7,21 +7,21 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     params_file = os.path.join(
-        get_package_share_directory('g2_bringup'),
+        get_package_share_directory('bringup'),
         'config',
         'demo_params.yaml',
     )
 
     return LaunchDescription([
         Node(
-            package='g2_bringup',
+            package='bringup',
             executable='g2_talker',
             name='g2_talker',
             parameters=[params_file],
             output='screen',
         ),
         Node(
-            package='g2_bringup',
+            package='bringup',
             executable='g2_listener',
             name='g2_listener',
             output='screen',

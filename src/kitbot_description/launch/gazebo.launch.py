@@ -15,10 +15,10 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     kitbot_share = get_package_share_directory('kitbot_description')
-    g2_gazebo_share = get_package_share_directory('g2_gazebo')
+    gazebo_share = get_package_share_directory('gazebo')
 
     urdf_file = os.path.join(kitbot_share, 'urdf', 'kb_25000.urdf')
-    world_file = os.path.join(g2_gazebo_share, 'models', 'reefscape.world')
+    world_file = os.path.join(gazebo_share, 'models', 'reefscape.world')
 
     gz_args = LaunchConfiguration('gz_args')
     world = LaunchConfiguration('world')
@@ -28,7 +28,7 @@ def generate_launch_description():
 
     resource_path = os.pathsep.join([
         os.path.dirname(kitbot_share),
-        os.path.join(g2_gazebo_share, 'models'),
+        os.path.join(gazebo_share, 'models'),
         os.environ.get('GZ_SIM_RESOURCE_PATH', ''),
     ])
 

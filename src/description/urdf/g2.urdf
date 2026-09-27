@@ -3,13 +3,13 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="package://g2_description/meshes/visual/Chassis.glb" scale="1 1 1" />
+                <mesh filename="package://description/meshes/visual/Chassis.glb" scale="1 1 1" />
             </geometry>
         </visual>
         <collision>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry>
-                <mesh filename="package://g2_description/meshes/collision/Chassis.stl" scale="1 1 1" />
+                <mesh filename="package://description/meshes/collision/Chassis.stl" scale="1 1 1" />
             </geometry>
         </collision>
         <inertial>
@@ -23,13 +23,13 @@
         <visual>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/visual/Intake.glb" />
+                <mesh filename="package://description/meshes/visual/Intake.glb" />
             </geometry>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/collision/Intake.stl" />
+                <mesh filename="package://description/meshes/collision/Intake.stl" />
             </geometry>
         </collision>
         <inertial>
@@ -43,13 +43,13 @@
         <visual>
             <origin xyz="0.0 -0.111 -0.027" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/visual/Intake_End_Effector.glb" />
+                <mesh filename="package://description/meshes/visual/Intake_End_Effector.glb" />
             </geometry>
         </visual>
         <collision>
             <origin xyz="0.0 -0.111 -0.027" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/collision/Intake_End_Effector.stl" />
+                <mesh filename="package://description/meshes/collision/Intake_End_Effector.stl" />
             </geometry>
         </collision>
         <inertial>
@@ -63,13 +63,13 @@
         <visual>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/visual/Intake_Compliant_Wheel_Stack.glb" />
+                <mesh filename="package://description/meshes/visual/Intake_Compliant_Wheel_Stack.glb" />
             </geometry>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/collision/Intake_Compliant_Wheel_Stack.stl" />
+                <mesh filename="package://description/meshes/collision/Intake_Compliant_Wheel_Stack.stl" />
             </geometry>
         </collision>
         <inertial>
@@ -83,13 +83,13 @@
         <visual>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/visual/Intake_Compliant_Wheel_Stack.glb" />
+                <mesh filename="package://description/meshes/visual/Intake_Compliant_Wheel_Stack.glb" />
             </geometry>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/collision/Intake_Compliant_Wheel_Stack.stl" />
+                <mesh filename="package://description/meshes/collision/Intake_Compliant_Wheel_Stack.stl" />
             </geometry>
         </collision>
         <inertial>
@@ -103,13 +103,13 @@
         <visual>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/visual/Dif_Ring.glb" />
+                <mesh filename="package://description/meshes/visual/Dif_Ring.glb" />
             </geometry>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/collision/Dif_Ring.stl" />
+                <mesh filename="package://description/meshes/collision/Dif_Ring.stl" />
             </geometry>
         </collision>
         <inertial>
@@ -123,13 +123,13 @@
         <visual>
             <origin xyz="-0.003 -0.155 0.111" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/visual/Shooter_Body.glb" />
+                <mesh filename="package://description/meshes/visual/Shooter_Body.glb" />
             </geometry>
         </visual>
         <collision>
             <origin xyz="-0.003 -0.155 0.111" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/collision/Shooter_Body.stl" />
+                <mesh filename="package://description/meshes/collision/Shooter_Body.stl" />
             </geometry>
         </collision>
         <inertial>
@@ -143,13 +143,13 @@
         <visual>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/visual/Shooter_Compliant_Wheel.glb" />
+                <mesh filename="package://description/meshes/visual/Shooter_Compliant_Wheel.glb" />
             </geometry>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/collision/Shooter_Compliant_Wheel.stl" />
+                <mesh filename="package://description/meshes/collision/Shooter_Compliant_Wheel.stl" />
             </geometry>
         </collision>
         <inertial>
@@ -163,13 +163,13 @@
         <visual>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 1.57079633"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/visual/Shooter_Compliant_Wheel.glb" />
+                <mesh filename="package://description/meshes/visual/Shooter_Compliant_Wheel.glb" />
             </geometry>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 1.57079633"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/collision/Shooter_Compliant_Wheel.stl" />
+                <mesh filename="package://description/meshes/collision/Shooter_Compliant_Wheel.stl" />
             </geometry>
         </collision>
         <inertial>
@@ -183,13 +183,13 @@
         <visual>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/visual/Shooter_Compliant_Wheel.glb" />
+                <mesh filename="package://description/meshes/visual/Shooter_Compliant_Wheel.glb" />
             </geometry>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/collision/Shooter_Compliant_Wheel.stl" />
+                <mesh filename="package://description/meshes/collision/Shooter_Compliant_Wheel.stl" />
             </geometry>
         </collision>
         <inertial>
@@ -203,13 +203,13 @@
         <visual>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/visual/Shooter_Compliant_Wheel.glb" />
+                <mesh filename="package://description/meshes/visual/Shooter_Compliant_Wheel.glb" />
             </geometry>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/collision/Shooter_Compliant_Wheel.stl" />
+                <mesh filename="package://description/meshes/collision/Shooter_Compliant_Wheel.stl" />
             </geometry>
         </collision>
         <inertial>
@@ -223,13 +223,13 @@
         <visual>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/visual/Swerve_Axel.glb" />
+                <mesh filename="package://description/meshes/visual/Swerve_Axel.glb" />
             </geometry>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/collision/Swerve_Axel.stl" />
+                <mesh filename="package://description/meshes/collision/Swerve_Axel.stl" />
             </geometry>
         </collision>
         <inertial>
@@ -243,13 +243,13 @@
         <visual>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/visual/Swerve_Wheel.glb" />
+                <mesh filename="package://description/meshes/visual/Swerve_Wheel.glb" />
             </geometry>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/collision/Swerve_Wheel.stl" />
+                <mesh filename="package://description/meshes/collision/Swerve_Wheel.stl" />
             </geometry>
         </collision>
         <inertial>
@@ -263,13 +263,13 @@
         <visual>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/visual/Swerve_Axel.glb" />
+                <mesh filename="package://description/meshes/visual/Swerve_Axel.glb" />
             </geometry>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/collision/Swerve_Axel.stl" />
+                <mesh filename="package://description/meshes/collision/Swerve_Axel.stl" />
             </geometry>
         </collision>
         <inertial>
@@ -283,13 +283,13 @@
         <visual>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/visual/Swerve_Wheel.glb" />
+                <mesh filename="package://description/meshes/visual/Swerve_Wheel.glb" />
             </geometry>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/collision/Swerve_Wheel.stl" />
+                <mesh filename="package://description/meshes/collision/Swerve_Wheel.stl" />
             </geometry>
         </collision>
         <inertial>
@@ -303,13 +303,13 @@
         <visual>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/visual/Swerve_Axel.glb" />
+                <mesh filename="package://description/meshes/visual/Swerve_Axel.glb" />
             </geometry>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/collision/Swerve_Axel.stl" />
+                <mesh filename="package://description/meshes/collision/Swerve_Axel.stl" />
             </geometry>
         </collision>
         <inertial>
@@ -323,13 +323,13 @@
         <visual>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/visual/Swerve_Wheel.glb" />
+                <mesh filename="package://description/meshes/visual/Swerve_Wheel.glb" />
             </geometry>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/collision/Swerve_Wheel.stl" />
+                <mesh filename="package://description/meshes/collision/Swerve_Wheel.stl" />
             </geometry>
         </collision>
         <inertial>
@@ -343,13 +343,13 @@
         <visual>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/visual/Swerve_Axel.glb" />
+                <mesh filename="package://description/meshes/visual/Swerve_Axel.glb" />
             </geometry>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/collision/Swerve_Axel.stl" />
+                <mesh filename="package://description/meshes/collision/Swerve_Axel.stl" />
             </geometry>
         </collision>
         <inertial>
@@ -363,13 +363,13 @@
         <visual>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/visual/Swerve_Wheel.glb" />
+                <mesh filename="package://description/meshes/visual/Swerve_Wheel.glb" />
             </geometry>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
             <geometry>
-                <mesh filename="package://g2_description/meshes/collision/Swerve_Wheel.stl" />
+                <mesh filename="package://description/meshes/collision/Swerve_Wheel.stl" />
             </geometry>
         </collision>
         <inertial>

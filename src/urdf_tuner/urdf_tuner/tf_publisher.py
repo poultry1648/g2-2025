@@ -7,7 +7,7 @@ purely through TF, which is recomputed every tick so dragging a marker moves
 the already-loaded meshes without reloading them.
 """
 
-from g2_urdf_tuner.urdf_model import edge_transform, matrix_to_quaternion
+from urdf_tuner.urdf_model import edge_transform, matrix_to_quaternion
 from geometry_msgs.msg import TransformStamped
 from rclpy.qos import DurabilityPolicy, HistoryPolicy, QoSProfile, ReliabilityPolicy
 from sensor_msgs.msg import JointState

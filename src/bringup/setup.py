@@ -3,7 +3,7 @@ import os
 
 from setuptools import find_packages, setup
 
-package_name = 'g2_bringup'
+package_name = 'bringup'
 
 setup(
     name=package_name,
@@ -31,8 +31,8 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'g2_talker = g2_bringup.g2_talker:main',
-            'g2_listener = g2_bringup.g2_listener:main',
+            'g2_talker = bringup.g2_talker:main',
+            'g2_listener = bringup.g2_listener:main',
         ],
     },
 )

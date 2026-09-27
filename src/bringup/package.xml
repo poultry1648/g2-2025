@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>g2_bringup</name>
+  <name>bringup</name>
   <version>0.0.0</version>
   <description>Basic ROS 2 demo package (talker/listener) for the g2-2026 workspace.</description>
   <maintainer email="woodyspivey@gmail.com">poultry</maintainer>
@@ -13,8 +13,8 @@
   <exec_depend>launch_ros</exec_depend>
   <exec_depend>ament_index_python</exec_depend>
   <exec_depend>ros_gz_sim</exec_depend>
-  <exec_depend>g2_description</exec_depend>
-  <exec_depend>g2_gazebo</exec_depend>
+  <exec_depend>description</exec_depend>
+  <exec_depend>gazebo</exec_depend>
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>

@@ -5,10 +5,10 @@ Runs the slider panel (which publishes the live TF tree and joint axes)
 alongside RViz2 configured with a RobotModel, TF and MarkerArray display.
 
 Usage:
-  ros2 launch g2_urdf_tuner tune.launch.py
-  ros2 launch g2_urdf_tuner tune.launch.py urdf:=/abs/robot.urdf save:=/abs/out.urdf
+  ros2 launch urdf_tuner tune.launch.py
+  ros2 launch urdf_tuner tune.launch.py urdf:=/abs/robot.urdf save:=/abs/out.urdf
 
-The default URDF is resolved from ``src/g2_description/urdf/g2.urdf`` relative
+The default URDF is resolved from ``src/description/urdf/g2.urdf`` relative
 to the current working directory so edits save straight back into the source
 tree; otherwise the installed share copy is used.
 """
@@ -22,17 +22,17 @@ from launch_ros.actions import Node
 
 
 def _default_urdf():
-    candidate = os.path.join(os.getcwd(), 'src', 'g2_description', 'urdf', 'g2.urdf')
+    candidate = os.path.join(os.getcwd(), 'src', 'description', 'urdf', 'g2.urdf')
     if os.path.isfile(candidate):
         return candidate
-    return os.path.join(get_package_share_directory('g2_description'), 'urdf', 'g2.urdf')
+    return os.path.join(get_package_share_directory('description'), 'urdf', 'g2.urdf')
 
 
 def generate_launch_description():
     """Build the launch description for the tuner and RViz2."""
     default_urdf = _default_urdf()
     default_rviz = os.path.join(
-        get_package_share_directory('g2_urdf_tuner'), 'config', 'tune.rviz')
+        get_package_share_directory('urdf_tuner'), 'config', 'tune.rviz')
 
     return LaunchDescription([
         DeclareLaunchArgument(
@@ -51,7 +51,7 @@ def generate_launch_description():
             description='Absolute path to the RViz2 config file.',
         ),
         Node(
-            package='g2_urdf_tuner',
+            package='urdf_tuner',
             executable='urdf_tuner_gui',
             parameters=[{
                 'urdf_path': LaunchConfiguration('urdf'),

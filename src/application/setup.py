@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-package_name = 'g2_application'
+package_name = 'application'
 
 setup(
     name=package_name,

@@ -10,7 +10,7 @@ import math
 import tkinter as tk
 from tkinter import ttk
 
-from g2_urdf_tuner.tuner_backend import TunerBackend
+from urdf_tuner.tuner_backend import TunerBackend
 import numpy as np
 import rclpy
 from rclpy.node import Node

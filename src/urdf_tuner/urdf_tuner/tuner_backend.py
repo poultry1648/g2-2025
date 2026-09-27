@@ -7,8 +7,8 @@ axes. A front end (the tkinter slider panel) mutates the model and calls
 :meth:`tick` to push the result to RViz.
 """
 
-from g2_urdf_tuner.tf_publisher import TfPublisher
-from g2_urdf_tuner.urdf_model import matrix_to_quaternion, origin_matrix, UrdfModel
+from urdf_tuner.tf_publisher import TfPublisher
+from urdf_tuner.urdf_model import matrix_to_quaternion, origin_matrix, UrdfModel
 import numpy as np
 from visualization_msgs.msg import Marker
 from visualization_msgs.msg import MarkerArray

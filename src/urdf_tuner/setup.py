@@ -2,7 +2,7 @@ from glob import glob
 
 from setuptools import find_packages, setup
 
-package_name = 'g2_urdf_tuner'
+package_name = 'urdf_tuner'
 
 setup(
     name=package_name,
@@ -28,7 +28,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'urdf_tuner_gui = g2_urdf_tuner.urdf_tuner_gui:main',
+            'urdf_tuner_gui = urdf_tuner.urdf_tuner_gui:main',
         ],
     },
 )

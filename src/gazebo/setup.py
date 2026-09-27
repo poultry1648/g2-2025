@@ -3,7 +3,7 @@ import os
 
 from setuptools import find_packages, setup
 
-package_name = 'g2_gazebo'
+package_name = 'gazebo'
 
 
 def model_data_files():

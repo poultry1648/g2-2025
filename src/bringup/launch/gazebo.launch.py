@@ -14,11 +14,11 @@ from launch_ros.actions import Node
 
 
 def generate_launch_description():
-    g2_description_share = get_package_share_directory('g2_description')
-    g2_gazebo_share = get_package_share_directory('g2_gazebo')
+    description_share = get_package_share_directory('description')
+    gazebo_share = get_package_share_directory('gazebo')
 
-    urdf_file = os.path.join(g2_description_share, 'urdf', 'g2.urdf')
-    world_file = os.path.join(g2_gazebo_share, 'models', 'reefscape.world')
+    urdf_file = os.path.join(description_share, 'urdf', 'g2.urdf')
+    world_file = os.path.join(gazebo_share, 'models', 'reefscape.world')
 
     gz_args = LaunchConfiguration('gz_args')
     world = LaunchConfiguration('world')
@@ -27,8 +27,8 @@ def generate_launch_description():
     spawn_z = LaunchConfiguration('z')
 
     resource_path = os.pathsep.join([
-        os.path.dirname(g2_description_share),
-        os.path.join(g2_gazebo_share, 'models'),
+        os.path.dirname(description_share),
+        os.path.join(gazebo_share, 'models'),
         os.environ.get('GZ_SIM_RESOURCE_PATH', ''),
     ])
 

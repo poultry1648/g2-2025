@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>g2_urdf_tuner</name>
+  <name>urdf_tuner</name>
   <version>0.0.0</version>
   <description>Interactive RViz2 editor for URDF joint origins and axes.</description>
   <maintainer email="woodyspivey@gmail.com">poultry</maintainer>
