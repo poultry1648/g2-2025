@@ -68,6 +68,13 @@ def generate_launch_description():
             )),
             launch_arguments={'gz_args': gz_args}.items(),
         ),
+        IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(os.path.join(
+                get_package_share_directory('motor_node'),
+                'launch',
+                'motor_node.launch.py'
+            ))
+        ),
         TimerAction(period=5.0, actions=[
             Node(
                 package='ros_gz_sim',

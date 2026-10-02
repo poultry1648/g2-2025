@@ -24,6 +24,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
+            'swerve_test = application.swerve_test:main'
         ],
     },
 )
