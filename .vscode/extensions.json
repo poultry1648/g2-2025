@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "ms-iot.vscode-ros",
+    "redhat.vscode-yaml",
+    "charliermarsh.ruff",
+    "ms-vscode.cmake-tools",
+    "ms-vscode.cpptools"
+  ]
+}

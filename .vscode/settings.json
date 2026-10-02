@@ -1,3 +1,76 @@
 {
-    "cmake.sourceDirectory": "/home/poultry/g2-2026/src/motor_msgs"
+  "python.defaultInterpreterPath": "/usr/bin/python3",
+  "python.analysis.extraPaths": [
+    "/opt/ros/jazzy/lib/python3.12/site-packages",
+    "${workspaceFolder}/install/motor_msgs/lib/python3.12/site-packages",
+    "${workspaceFolder}/src/application",
+    "${workspaceFolder}/src/bringup",
+    "${workspaceFolder}/src/description",
+    "${workspaceFolder}/src/gazebo",
+    "${workspaceFolder}/src/kitbot_application",
+    "${workspaceFolder}/src/kitbot_bringup",
+    "${workspaceFolder}/src/kitbot_description",
+    "${workspaceFolder}/src/motor_node",
+    "${workspaceFolder}/src/urdf_tuner"
+  ],
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.indexing": true,
+  "python.analysis.autoSearchPaths": true,
+
+  "cmake.sourceDirectory": "${workspaceFolder}/src/motor_msgs",
+  "cmake.configureOnOpen": false,
+  "cmake.buildDirectory": "${workspaceFolder}/build/motor_msgs",
+  "C_Cpp.default.compileCommands": "${workspaceFolder}/build/motor_msgs/compile_commands.json",
+  "C_Cpp.default.includePath": [
+    "${workspaceFolder}/install/**/include/**",
+    "/opt/ros/jazzy/include/**"
+  ],
+  "C_Cpp.default.intelliSenseMode": "linux-gcc-x64",
+
+  "files.watcherExclude": {
+    "**/build/**": true,
+    "**/install/**": true,
+    "**/log/**": true,
+    "**/__pycache__/**": true
+  },
+  "search.exclude": {
+    "**/build": true,
+    "**/install": true,
+    "**/log": true
+  },
+
+  "terminal.integrated.profiles.linux": {
+    "ros2": {
+      "path": "bash",
+      "args": ["--rcfile", "${workspaceFolder}/.vscode/ros2.bashrc"]
+    }
+  },
+  "terminal.integrated.defaultProfile.linux": "ros2",
+  "python.autoComplete.extraPaths": [
+    "/home/poultry/g2-2026/build/urdf_tuner",
+    "/home/poultry/g2-2026/install/urdf_tuner/lib/python3.12/site-packages",
+    "/home/poultry/g2-2026/build/motor_node",
+    "/home/poultry/g2-2026/install/motor_node/lib/python3.12/site-packages",
+    "/home/poultry/g2-2026/install/motor_msgs/lib/python3.12/site-packages",
+    "/home/poultry/g2-2026/build/kitbot_bringup",
+    "/home/poultry/g2-2026/install/kitbot_bringup/lib/python3.12/site-packages",
+    "/home/poultry/g2-2026/build/kitbot_description",
+    "/home/poultry/g2-2026/install/kitbot_description/lib/python3.12/site-packages",
+    "/home/poultry/g2-2026/build/kitbot_application",
+    "/home/poultry/g2-2026/install/kitbot_application/lib/python3.12/site-packages",
+    "/home/poultry/g2-2026/build/bringup",
+    "/home/poultry/g2-2026/install/bringup/lib/python3.12/site-packages",
+    "/home/poultry/g2-2026/build/gazebo",
+    "/home/poultry/g2-2026/install/gazebo/lib/python3.12/site-packages",
+    "/home/poultry/g2-2026/build/description",
+    "/home/poultry/g2-2026/install/description/lib/python3.12/site-packages",
+    "/home/poultry/g2-2026/build/application",
+    "/home/poultry/g2-2026/install/application/lib/python3.12/site-packages",
+    "/opt/ros/jazzy/opt/gz_sim_vendor/lib/python",
+    "/opt/ros/jazzy/opt/sdformat_vendor/lib/python",
+    "/opt/ros/jazzy/opt/gz_transport_vendor/lib/python",
+    "/opt/ros/jazzy/opt/gz_msgs_vendor/lib/python",
+    "/opt/ros/jazzy/opt/gz_math_vendor/lib/python",
+    "/opt/ros/jazzy/lib/python3.12/site-packages"
+  ]
 }
