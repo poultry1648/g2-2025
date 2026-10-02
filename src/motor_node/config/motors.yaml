@@ -1,0 +1,57 @@
+transport: sim
+joint_states_topic: /joint_states
+update_rate: 250.0
+state_rate: 50.0
+
+motor_presets:
+  kraken_x60:
+    nominal_voltage: 12.0
+    free_speed_rpm: 6000.0
+    stall_torque: 9.37
+    stall_current: 483.0
+    free_current: 3.6
+    stator_current_limit: 100.0
+    supply_current_limit: 60.0
+
+defaults:
+  motor: kraken_x60
+  gear_ratio: 7.03
+  efficiency: 0.9
+  inverted: false
+  neutral_mode: brake
+  velocity_gains: [0.12, 0.0, 0.0]
+  position_gains: [10.0, 0.0, 0.5]
+
+motors:
+  - name: swerve_wheel_front_left_joint
+    joint: swerve_wheel_front_left_joint
+    can_id: 1
+  - name: swerve_axel_front_left_joint
+    joint: swerve_axel_front_left_joint
+    velocity_gains: [0.3, 0.0, 0.0]
+    position_gains: [10.0, 0.0, 0.5]
+    can_id: 2
+  - name: swerve_wheel_front_right_joint
+    joint: swerve_wheel_front_right_joint
+    can_id: 3
+  - name: swerve_axel_front_right_joint
+    joint: swerve_axel_front_right_joint
+    velocity_gains: [0.3, 0.0, 0.0]
+    position_gains: [10.0, 0.0, 0.5]
+    can_id: 4
+  - name: swerve_wheel_back_left_joint
+    joint: swerve_wheel_back_left_joint
+    can_id: 5
+  - name: swerve_axel_back_left_joint
+    joint: swerve_axel_back_left_joint
+    velocity_gains: [0.3, 0.0, 0.0]
+    position_gains: [10.0, 0.0, 0.5]
+    can_id: 6
+  - name: swerve_wheel_back_right_joint
+    joint: swerve_wheel_back_right_joint
+    can_id: 7
+  - name: swerve_axel_back_right_joint
+    joint: swerve_axel_back_right_joint
+    velocity_gains: [0.3, 0.0, 0.0]
+    position_gains: [10.0, 0.0, 0.5]
+    can_id: 8

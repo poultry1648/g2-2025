@@ -235,7 +235,7 @@
         <inertial>
             <origin xyz="0 0.0028776477 0.011266853" rpy="0 0 0" />
             <mass value="1.5" />
-            <inertia ixx="0.0014793695" ixy="0" ixz="0" iyy="0.0012743002" iyz="0.00010780807" izz="0.0015453743" />
+            <inertia ixx="0.00468937" ixy="0" ixz="0" iyy="0.00448430" iyz="0.00010780807" izz="0.00475537" />
         </inertial>
     </link>
 
@@ -255,7 +255,7 @@
         <inertial>
             <origin xyz="0 1.1124979e-06 0" rpy="0 0 0" />
             <mass value="0.6" />
-            <inertia ixx="0.00056436164" ixy="0" ixz="0" iyy="0.00076883741" iyz="0" izz="0.00056436535" />
+            <inertia ixx="0.00377436" ixy="0" ixz="0" iyy="0.00397884" iyz="0" izz="0.00377437" />
         </inertial>
     </link>
 
@@ -275,7 +275,7 @@
         <inertial>
             <origin xyz="0 0.0028776477 0.011266853" rpy="0 0 0" />
             <mass value="1.5" />
-            <inertia ixx="0.0014793695" ixy="0" ixz="0" iyy="0.0012743002" iyz="0.00010780807" izz="0.0015453743" />
+            <inertia ixx="0.00468937" ixy="0" ixz="0" iyy="0.00448430" iyz="0.00010780807" izz="0.00475537" />
         </inertial>
     </link>
 
@@ -295,7 +295,7 @@
         <inertial>
             <origin xyz="0 1.1124979e-06 0" rpy="0 0 0" />
             <mass value="0.6" />
-            <inertia ixx="0.00056436164" ixy="0" ixz="0" iyy="0.00076883741" iyz="0" izz="0.00056436535" />
+            <inertia ixx="0.00377436" ixy="0" ixz="0" iyy="0.00397884" iyz="0" izz="0.00377437" />
         </inertial>
     </link>
 
@@ -315,7 +315,7 @@
         <inertial>
             <origin xyz="0 0.0028776477 0.011266853" rpy="0 0 0" />
             <mass value="1.5" />
-            <inertia ixx="0.0014793695" ixy="0" ixz="0" iyy="0.0012743002" iyz="0.00010780807" izz="0.0015453743" />
+            <inertia ixx="0.00468937" ixy="0" ixz="0" iyy="0.00448430" iyz="0.00010780807" izz="0.00475537" />
         </inertial>
     </link>
 
@@ -335,7 +335,7 @@
         <inertial>
             <origin xyz="0 1.1124979e-06 0" rpy="0 0 0" />
             <mass value="0.6" />
-            <inertia ixx="0.00056436164" ixy="0" ixz="0" iyy="0.00076883741" iyz="0" izz="0.00056436535" />
+            <inertia ixx="0.00377436" ixy="0" ixz="0" iyy="0.00397884" iyz="0" izz="0.00377437" />
         </inertial>
     </link>
 
@@ -355,7 +355,7 @@
         <inertial>
             <origin xyz="0 0.0028776477 0.011266853" rpy="0 0 0" />
             <mass value="1.5" />
-            <inertia ixx="0.0014793695" ixy="0" ixz="0" iyy="0.0012743002" iyz="0.00010780807" izz="0.0015453743" />
+            <inertia ixx="0.00468937" ixy="0" ixz="0" iyy="0.00448430" iyz="0.00010780807" izz="0.00475537" />
         </inertial>
     </link>
 
@@ -375,7 +375,7 @@
         <inertial>
             <origin xyz="0 1.1124979e-06 0" rpy="0 0 0" />
             <mass value="0.6" />
-            <inertia ixx="0.00056436164" ixy="0" ixz="0" iyy="0.00076883741" iyz="0" izz="0.00056436535" />
+            <inertia ixx="0.00377436" ixy="0" ixz="0" iyy="0.00397884" iyz="0" izz="0.00377437" />
         </inertial>
     </link>
 
@@ -464,7 +464,8 @@
         <parent link="chassis"/>
         <child link="swerve_axel_front_left"/>
         <axis xyz="0.0 0.0 1"/>
-        <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
+        <limit lower="0.0" upper="0.0" effort="59.3" velocity="89.4"/>
+        <dynamics damping="0.01" friction="0.05"/>
     </joint>
 
     <joint name="swerve_wheel_front_left_joint" type="continuous">
@@ -472,7 +473,8 @@
         <parent link="swerve_axel_front_left"/>
         <child link="swerve_wheel_front_left"/>
         <axis xyz="0.0 1 0.0"/>
-        <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
+        <limit lower="0.0" upper="0.0" effort="59.3" velocity="89.4"/>
+        <dynamics damping="0.01" friction="0.05"/>
     </joint>
 
     <joint name="swerve_axel_front_right_joint" type="continuous">
@@ -480,7 +482,8 @@
         <parent link="chassis"/>
         <child link="swerve_axel_front_right"/>
         <axis xyz="0.0 0.0 1"/>
-        <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
+        <limit lower="0.0" upper="0.0" effort="59.3" velocity="89.4"/>
+        <dynamics damping="0.01" friction="0.05"/>
     </joint>
 
     <joint name="swerve_wheel_front_right_joint" type="continuous">
@@ -488,7 +491,8 @@
         <parent link="swerve_axel_front_right"/>
         <child link="swerve_wheel_front_right"/>
         <axis xyz="0.0 1 0.0"/>
-        <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
+        <limit lower="0.0" upper="0.0" effort="59.3" velocity="89.4"/>
+        <dynamics damping="0.01" friction="0.05"/>
     </joint>
 
     <joint name="swerve_axel_back_left_joint" type="continuous">
@@ -496,7 +500,8 @@
         <parent link="chassis"/>
         <child link="swerve_axel_back_left"/>
         <axis xyz="0.0 0.0 1"/>
-        <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
+        <limit lower="0.0" upper="0.0" effort="59.3" velocity="89.4"/>
+        <dynamics damping="0.01" friction="0.05"/>
     </joint>
 
     <joint name="swerve_wheel_back_left_joint" type="continuous">
@@ -504,7 +509,8 @@
         <parent link="swerve_axel_back_left"/>
         <child link="swerve_wheel_back_left"/>
         <axis xyz="0.0 1 0.0"/>
-        <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
+        <limit lower="0.0" upper="0.0" effort="59.3" velocity="89.4"/>
+        <dynamics damping="0.01" friction="0.05"/>
     </joint>
 
     <joint name="swerve_axel_back_right_joint" type="continuous">
@@ -512,7 +518,8 @@
         <parent link="chassis"/>
         <child link="swerve_axel_back_right"/>
         <axis xyz="0.0 0.0 1"/>
-        <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
+        <limit lower="0.0" upper="0.0" effort="59.3" velocity="89.4"/>
+        <dynamics damping="0.01" friction="0.05"/>
     </joint>
 
     <joint name="swerve_wheel_back_right_joint" type="continuous">
@@ -520,6 +527,36 @@
         <parent link="swerve_axel_back_right"/>
         <child link="swerve_wheel_back_right"/>
         <axis xyz="0.0 1 0.0"/>
-        <limit lower="0.0" upper="0.0" effort="0.0" velocity="0.0"/>
+        <limit lower="0.0" upper="0.0" effort="59.3" velocity="89.4"/>
+        <dynamics damping="0.01" friction="0.05"/>
     </joint>
+
+    <gazebo>
+        <plugin filename="gz-sim-apply-joint-force-system" name="gz::sim::systems::ApplyJointForce">
+            <joint_name>swerve_wheel_front_left_joint</joint_name>
+        </plugin>
+        <plugin filename="gz-sim-apply-joint-force-system" name="gz::sim::systems::ApplyJointForce">
+            <joint_name>swerve_axel_front_left_joint</joint_name>
+        </plugin>
+        <plugin filename="gz-sim-apply-joint-force-system" name="gz::sim::systems::ApplyJointForce">
+            <joint_name>swerve_wheel_front_right_joint</joint_name>
+        </plugin>
+        <plugin filename="gz-sim-apply-joint-force-system" name="gz::sim::systems::ApplyJointForce">
+            <joint_name>swerve_axel_front_right_joint</joint_name>
+        </plugin>
+        <plugin filename="gz-sim-apply-joint-force-system" name="gz::sim::systems::ApplyJointForce">
+            <joint_name>swerve_wheel_back_left_joint</joint_name>
+        </plugin>
+        <plugin filename="gz-sim-apply-joint-force-system" name="gz::sim::systems::ApplyJointForce">
+            <joint_name>swerve_axel_back_left_joint</joint_name>
+        </plugin>
+        <plugin filename="gz-sim-apply-joint-force-system" name="gz::sim::systems::ApplyJointForce">
+            <joint_name>swerve_wheel_back_right_joint</joint_name>
+        </plugin>
+        <plugin filename="gz-sim-apply-joint-force-system" name="gz::sim::systems::ApplyJointForce">
+            <joint_name>swerve_axel_back_right_joint</joint_name>
+        </plugin>
+        <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher"/>
+    </gazebo>
+
 </robot>
