@@ -11,7 +11,7 @@ setup(
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
     ],
-    install_requires=['setuptools'],
+    install_requires=['setuptools', 'numpy'],
     zip_safe=True,
     maintainer='poultry',
     maintainer_email='woodyspivey@gmail.com',
@@ -24,7 +24,9 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'swerve_test = application.swerve_test:main'
+            'swerve_test = application.swerve_test:main',
+            'swerve = application.swerve:main',
+            'teleop = application.teleop:main' 
         ],
     },
 )
