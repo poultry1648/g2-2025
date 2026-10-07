@@ -31,7 +31,7 @@ class Swerve(Node):
 
         module_vectors = [mod + [msg.linear.x, msg.linear.y] for mod in module_vectors]
 
-        module_vectors = [[math.atan2(mod[1], mod[0])*2*numpy.pi, math.hypot(mod[1], mod[0])] for mod in module_vectors]
+        module_vectors = [[math.atan2(mod[1], mod[0])/(2*numpy.pi), math.hypot(mod[1], mod[0])] for mod in module_vectors]
 
         self._publish_swerve_commands(module_vectors[0], self._swerve_wheel_front_left_cmd, self._swerve_axel_front_left_cmd)
         self._publish_swerve_commands(module_vectors[1], self._swerve_wheel_front_right_cmd, self._swerve_axel_front_right_cmd)
